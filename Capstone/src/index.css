@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+/* font-family: 'Nunito', sans-serif; */
+
+@font-face {
+  font-family: "Premier League";
+  src: url("./PremierLeague.ttf") format("ttf");
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F7F9FC;
+  font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Premier League", serif;
+}
