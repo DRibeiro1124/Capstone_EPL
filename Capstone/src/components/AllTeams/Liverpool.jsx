@@ -6,14 +6,10 @@ const TeamWrapper = styled.div`
 
 .main {
     border: 1px solid black;
-    // margin: 1em;
-    margin-top: 8px;
-    margin-left: 8px;
+    margin: 1em;
     display: flex;
     flex-direction: column;
-    border-radius: 1em;
-    height: 14em;
-    width: 12em;
+    border-radius: 25px 25px;
     background: #A92D2A;
     color: #F7F9FC;
     
@@ -31,6 +27,8 @@ const TeamWrapper = styled.div`
     padding: 5px;
 }
 
+
+
 `
 
 
@@ -41,9 +39,9 @@ class Liverpool extends Component {
 
             <TeamWrapper>
                 <div className="main">
-                    <p>Liverpool</p>
+                    <p>Liverpool Football Club</p>
                     <img src={LiverpoolLogo} className="team-logo" alt="logo" />
-                    <p>Football Club</p>
+                    <p>You'll Never Walk Alone</p>
                 </div>
             </TeamWrapper>
         );
