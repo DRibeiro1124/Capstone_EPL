@@ -20,12 +20,12 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>
-        <td><%= team.home_kit %></td>
-        <td><%= team.away_kit %></td>
-        <td><%= team.third_kit %></td>
-        <td><%= team.lead_partner_logo %></td>
-        <td><%= team.club_partner_logo %></td>
-        <td><%= team.stadium %></td>
+        <td><img src="<%= team.home_kit %>" class="kit"/></td>
+        <td><img src="<%= team.away_kit %>" class="kit"></td>
+        <td><img src="<%= team.third_kit %>" class="kit"></td>
+        <td><img src="<%= team.lead_partner_logo %>" class="sponsor"></td>
+        <td><img src="<%= team.club_partner_logo %>" class="sponsor"></td>
+        <td><img src="<%= team.stadium %>" class="stadium"></td>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
