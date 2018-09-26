@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Home kit:</strong>
+  <%= @team.home_kit %>
+</p>
+
+<p>
+  <strong>Away kit:</strong>
+  <%= @team.away_kit %>
+</p>
+
+<p>
+  <strong>Third kit:</strong>
+  <%= @team.third_kit %>
+</p>
+
+<p>
+  <strong>Lead partner logo:</strong>
+  <%= @team.lead_partner_logo %>
+</p>
+
+<p>
+  <strong>Club partner logo:</strong>
+  <%= @team.club_partner_logo %>
+</p>
+
+<p>
+  <strong>Stadium:</strong>
+  <%= @team.stadium %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

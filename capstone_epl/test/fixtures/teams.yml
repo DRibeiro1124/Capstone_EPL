@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  home_kit: MyString
+  away_kit: MyString
+  third_kit: MyString
+  lead_partner_logo: MyString
+  club_partner_logo: MyString
+  stadium: MyString
+
+two:
+  name: MyString
+  home_kit: MyString
+  away_kit: MyString
+  third_kit: MyString
+  lead_partner_logo: MyString
+  club_partner_logo: MyString
+  stadium: MyString
