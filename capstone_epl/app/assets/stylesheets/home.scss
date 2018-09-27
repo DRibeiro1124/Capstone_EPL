@@ -1,3 +1,21 @@
-body {
-    // background: red;
+@font-face {
+    font-family: "Premier League";
+    src: url("./PremierLeague.ttf") format("ttf");
+  }
+
+h1 {
+   font-family: "Premier League"
+}
+
+img {
+    height: 5em;
+}
+
+.intro {
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
 }

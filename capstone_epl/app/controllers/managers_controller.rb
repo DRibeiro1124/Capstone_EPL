@@ -69,6 +69,6 @@ class ManagersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manager_params
-      params.require(:manager).permit(:first_name, :last_name, :bio)
+      params.require(:manager).permit(:first_name, :last_name, :bio, :photo, :country)
     end
 end

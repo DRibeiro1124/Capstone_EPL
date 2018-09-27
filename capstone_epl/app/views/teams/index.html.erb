@@ -5,12 +5,13 @@
 <table>
   <thead>
     <tr>
+      <th>Logo</th>
       <th>Name</th>
-      <th>Home kit</th>
-      <th>Away kit</th>
-      <th>Third kit</th>
-      <th>Lead partner logo</th>
-      <th>Club partner logo</th>
+      <th>Home Kit</th>
+      <th>Away Kit</th>
+      <th>Third Kit</th>
+      <th>Principal Partner Logo</th>
+      <th>Kit Supplier Logo</th>
       <th>Stadium</th>
       <th colspan="3"></th>
     </tr>
@@ -19,7 +20,8 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= team.name %></td>
+        <td><img src="<%= team.logo %>" class="logo"/></td>
+        <td class="club"><%= team.name %></td>
         <td><img src="<%= team.home_kit %>" class="kit"/></td>
         <td><img src="<%= team.away_kit %>" class="kit"></td>
         <td><img src="<%= team.third_kit %>" class="kit"></td>
