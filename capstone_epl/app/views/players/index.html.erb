@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Player</th>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Full Name</th>
       <th>club</th>
       <th>Nationality</th>
       <th>Jersey number</th>
@@ -20,8 +19,7 @@
     <% @players.each do |player| %>
       <tr>
         <td><%= player.photo %></td>
-        <td><%= player.first_name %></td>
-        <td><%= player.last_name %></td>
+        <td><%= player.full_name %></td>
         <td><%= player.club %></td>
         <td><%= player.country %></td>
         <td><%= player.jersey_number %></td>
