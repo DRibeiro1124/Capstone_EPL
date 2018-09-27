@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Photo</>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Full Name</th>
       <th>Nationality</th>
       <th>Bio</th>
       <th colspan="3"></th>
@@ -17,11 +16,9 @@
   <tbody>
     <% @managers.each do |manager| %>
       <tr>
-        <td><%= manager.photo %></td>
-        <td><%= manager.first_name %></td>
-        <td><%= manager.last_name %></td>
+        <td><img src="<%= manager.photo %>" class="photo"></td>
+        <td class="name"><%= manager.full_name %></td>
         <td><img src="<%= manager.country %>" class="flag"></td>
-        <td><%= manager.bio %></td>
         <td><%= link_to 'Show', manager %></td>
         <td><%= link_to 'Edit', edit_manager_path(manager) %></td>
         <td><%= link_to 'Destroy', manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
