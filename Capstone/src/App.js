@@ -3,8 +3,7 @@ import './App.css';
 import Header from './components/Header.jsx';
 import NavBar from './components/NavBar.jsx';
 import HomePage from './components/HomePage.jsx';
-// import Team from './components/Team'
-import Liverpool from './components/AllTeams/Liverpool.jsx';
+import Team from './components/Team';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -24,9 +23,7 @@ class App extends Component {
           <section>
           <Switch>
               <Route path="/" exact component={HomePage} />
-              <Liverpool />
-              {/* <Route path="/:teams" exact component={Team} /> */}
-              
+              <Route path="/:Team" exact component={Team} />
             </Switch>
           </section>
         </div>

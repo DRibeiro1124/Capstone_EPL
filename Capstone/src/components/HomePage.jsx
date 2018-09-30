@@ -101,7 +101,7 @@ class HomePage extends Component {
         fetch(`${base_URL}standings/1204?${api_key}`)
             .then(resp => resp.json())
             .then(teams => {
-                console.log("works?", teams);
+                // console.log("works?", teams);
                 this.setState({
                     teams: teams
                 })

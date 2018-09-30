@@ -45,7 +45,16 @@ class Liverpool extends Component {
                     <img src={LiverpoolLogo} className="team-logo" alt="logo" />
                     <p>You'll Never Walk Alone</p>
                 </div>
+                   <section>
+                       <footer>
+                           <div className="content has-text-centered">
+                                <p>Made with so much care in Oldsmar FL</p>
+                           </div>
+                       </footer>
+                   </section>
             </TeamWrapper>
+
+                
         );
     }
 }
