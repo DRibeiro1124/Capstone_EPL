@@ -14,8 +14,8 @@
   <tbody>
     <% @nationalities.each do |nationality| %>
       <tr>
-        <td><%= nationality.country %></td>
-        <td><%= nationality.flag %></td>
+        <td class="country"><%= nationality.country %></td>
+        <td><img src="<%= nationality.flag %>"</td>
         <td><%= link_to 'Show', nationality %></td>
         <td><%= link_to 'Edit', edit_nationality_path(nationality) %></td>
         <td><%= link_to 'Destroy', nationality, method: :delete, data: { confirm: 'Are you sure?' } %></td>

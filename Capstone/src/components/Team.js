@@ -16,21 +16,14 @@ class Team extends Component {
     componentDidMount() {   
         fetch(`${base_URL}team/9249?${api_key}`)
         .then (resp => resp.json())
-        .then (club => {
-            console.log(club)
+        .then (newClub => {
+            console.log(newClub)
         })
     }
     
     render() {
         return (
-            this.state.club.map((club, i) => {
-                return (
-                    <section key={i}>
-                        <p>this.props.clubs.name</p>
-                    
-                    </section>
-                )
-            })
+            <h2>info goes here</h2>
         )
     }
 }
