@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 
 const NavBarWrapper = styled.div`
@@ -14,6 +15,11 @@ ul {
     padding: 2em;
     margin: 15px;
     border-radius: 15px 75px;
+    
+}
+
+a {
+    color: white;
 }
 
 li {
@@ -35,8 +41,10 @@ class NavBar extends Component {
             <NavBarWrapper>
                 <div>
                     <ul>
-                        <li>Home</li>
-                        <li>Teams</li>
+                        <Link to="/">Home</Link>
+                        <Link to="/teams">Teams</Link>
+                        {/* <li>Home</li> */}
+                        {/* <li>Teams</li> */}
                         {/* <li>Fixtures</li> */}
                         {/* <li>Current Stats</li> */}
                         {/* <li>Table</li> */}
