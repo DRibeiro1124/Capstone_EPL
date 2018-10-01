@@ -23,7 +23,7 @@ class Team extends Component {
     
     render() {
         return (
-            <h2>info goes here</h2>
+            <p>Info in here</p>
         )
     }
 }

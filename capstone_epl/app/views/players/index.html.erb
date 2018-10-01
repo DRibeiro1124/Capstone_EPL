@@ -16,8 +16,10 @@
   </thead>
 
   <tbody>
+    <%= link_to 'New Player', new_player_path %>
     <% @players.each do |player| %>
       <tr class="container">
+        <td><%= player.id %></td> 
         <td><img src="<%= player.photo %>" class="player"/></td>
         <td><img src="<%= player.team %>" class="team-logo"/></td>
         <td><%= player.position %></td>
@@ -29,9 +31,10 @@
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    
   </tbody>
 </table>
 
 <br>
-
 <%= link_to 'New Player', new_player_path %>
+

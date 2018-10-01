@@ -14,6 +14,7 @@
   <tbody>
     <% @nationalities.each do |nationality| %>
       <tr>
+        <td><%= nationality.id %></td>
         <td class="country"><%= nationality.country %></td>
         <td><img src="<%= nationality.flag %>"</td>
         <td><%= link_to 'Show', nationality %></td>
