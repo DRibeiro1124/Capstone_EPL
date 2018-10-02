@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+
 import Team from './Team';
 
 const base_URL = "http://api.football-api.com/2.0/"
@@ -20,6 +22,7 @@ class Teams extends Component {
         .then (teams => {
             this.setState({ teams })
         })
+        // fetch(`you api`)
     }
     
     render() {

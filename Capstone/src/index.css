@@ -1,7 +1,6 @@
-@import "~bulma/css/bulma.css"
-
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 /* font-family: 'Nunito', sans-serif; */
+import CrystalPalaceLogo from '../../images/CrystalPalaceLogo.svg'
 
 @font-face {
   font-family: "Premier League";
@@ -21,6 +20,7 @@ h1, h2, h3, h4 {
 }
 
 .team.CrystalPalace {
-  background-color: red;
-  color: purple;
+  background-color: #DC4D34;
+  color: #194A92;
+  font-family: "Premier League";
 }
