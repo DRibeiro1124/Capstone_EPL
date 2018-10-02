@@ -99,31 +99,3 @@ class Header extends Component {
 }
 
 export default Header;
-
-// Save this for later
-{/* <section className="teams">
-                    <img src={EPL_logo} className="EPL-logo" alt="logo" />
-                    <a href="https://www.arsenal.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Arsenal} className="team-logo" alt="logo" />
-                    <a href="https://www.afcb.co.uk/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Bournemouth} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.brightonandhovealbion.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Brighton} className="team-logo" alt="logo" /></a>
-                    <a href="http://www.burnleyfootballclub.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Burnley} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.cardiffcityfc.co.uk/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={CardiffCity} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.chelseafc.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Chelsea} className="team-logo" alt="logo" /></a>
-                    <a href="http://www.cpfc.co.uk/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={CrystalPalace} className="team-logo" alt="logo" /></a>
-                    <a href="http://www.evertonfc.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Everton} className="team-logo" alt="logo" /></a>
-                    <a href="http://www.fulhamfc.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Fulham} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.htafc.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={HuddersfieldTown} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.lcfc.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={LeicesterCity} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.liverpoolfc.com/welcome-to-liverpool-fc"><img src={Liverpool} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.mancity.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={ManchesterCity} className="team-logo" alt="logo" /></a>
-                    <a href="http://www.manutd.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={ManchesterUnited} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.nufc.co.uk/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={NewcastleUnited} className="team-logo" alt="logo" /></a>
-                    <a href="https://southamptonfc.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Southampton} className="team-logo" alt="logo" /></a>
-                    <a href="http://www.tottenhamhotspur.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={TottenhamSpurs} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.watfordfc.com/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Watford} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.whufc.com/"><img src={WestHamUnited} className="team-logo" alt="logo" /></a>
-                    <a href="https://www.wolves.co.uk/?utm_source=premier-league-website&utm_campaign=website&utm_medium=link"><img src={Wolverhampton} className="team-logo" alt="logo" /></a>
-                </section>
-                {/* <div className="intro">
-                    <h6>Link to Official Team Page</h6>
-                </div> */} 

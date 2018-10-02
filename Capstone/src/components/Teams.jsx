@@ -25,7 +25,10 @@ class Teams extends Component {
     render() {
         return (
             <div>
-                {this.state.teams.map((team) => {
+                {this.state.teams.sort((a, b) => {
+                    if(a.team_name < b.team_name) return -1;
+                    if(a.team_name > b.team_name) return 1;
+                }).map((team) => {
                     return <div key={team.team_id}>
                     <Link to={`/teams/${team.team_id}`} >{team.team_name}</Link>
                 </div>
