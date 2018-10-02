@@ -2,26 +2,6 @@ import React, { Component } from 'react';
 
 import styled from 'styled-components'
 import logo from '../images/EPL-Logo.svg'
-import Arsenal from '../images/ArsenalLogo.svg'
-import Bournemouth from '../images/BournemouthLogo.svg'
-import Brighton from '../images/BrightonLogo.svg'
-import Burnley from '../images/BurnleyLogo.svg'
-import CardiffCity from '../images/CardiffCityLogo.svg'
-import Chelsea from '../images/ChelseaLogo.svg'
-import CrystalPalace from '../images/CrystalPalaceLogo.svg'
-import Everton from '../images/EvertonLogo.svg'
-import Fulham from '../images/FulhamLogo.svg'
-import HuddersfieldTown from '../images/HuddersfieldTownLogo.svg'
-import LeicesterCity from '../images/LeicesterCityLogo.svg'
-import Liverpool from '../images/LiverpoolLogo.svg'
-import ManchesterCity from '../images/ManchesterCityLogo.svg'
-import ManchesterUnited from '../images/ManchesterUnitedLogo.svg'
-import NewcastleUnited from '../images/NewcastleUnitedLogo.svg'
-import Southampton from '../images/SouthamptonLogo.svg'
-import TottenhamSpurs from '../images/TottenhamSpursLogo.svg'
-import Watford from '../images/WatfordLogo.svg'
-import WestHamUnited from '../images/WestHamUnitedLogo.svg'
-import Wolverhampton from '../images/WolverhamptonLogo.svg'
 import logo1 from '../images/EPL-Background1.gif'
 
 
@@ -91,26 +71,26 @@ class Header extends Component {
             <HeaderWrapper>
                 <section className="teams">
                     <img src={logo} className="EPL-logo" alt="logo" />
-                    <img src={Arsenal} className="team-logo" alt="logo" />
-                    <img src={Bournemouth} className="team-logo" alt="logo" />
-                    <img src={Brighton} className="team-logo" alt="logo" />
-                    <img src={Burnley} className="team-logo" alt="logo" />
-                    <img src={CardiffCity} className="team-logo" alt="logo" />
-                    <img src={Chelsea} className="team-logo" alt="logo" />
-                    <img src={CrystalPalace} className="team-logo" alt="logo" />
-                    <img src={Everton} className="team-logo" alt="logo" />
-                    <img src={Fulham} className="team-logo" alt="logo" />
-                    <img src={HuddersfieldTown} className="team-logo" alt="logo" />
-                    <img src={LeicesterCity} className="team-logo" alt="logo" />
-                    <img src={Liverpool} className="team-logo" alt="logo" />
-                    <img src={ManchesterCity} className="team-logo" alt="logo" />
-                    <img src={ManchesterUnited} className="team-logo" alt="logo" />
-                    <img src={NewcastleUnited} className="team-logo" alt="logo" />
-                    <img src={Southampton} className="team-logo" alt="logo" />
-                    <img src={TottenhamSpurs} className="team-logo" alt="logo" />
-                    <img src={Watford} className="team-logo" alt="logo" />
-                    <img src={WestHamUnited} className="team-logo" alt="logo" />
-                    <img src={Wolverhampton} className="team-logo" alt="logo" />
+                    <img src="/images/ArsenalLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/BournemouthLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/BrightonLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/BurnleyLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/CardiffCityLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/ChelseaLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/CrystalPalaceLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/EvertonLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/FulhamLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/HuddersfieldTownLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/LeicesterCityLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/LiverpoolLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/ManchesterCityLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/ManchesterUnitedLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/NewcastleUnitedLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/SouthamptonLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/TottenhamSpursLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/WatfordLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/WestHamUnitedLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/WolverhamptonLogo.svg" className="team-logo" alt="logo" />
                 </section>
 
             </HeaderWrapper>

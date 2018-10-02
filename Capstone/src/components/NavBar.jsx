@@ -20,6 +20,9 @@ ul {
 
 a {
     color: white;
+    text-decoration: none;
+    font-weight: 900;
+    font-family: "Premier League", serif;
 }
 
 li {
@@ -31,6 +34,26 @@ li {
 li:hover {
     // background: yellow;
     color: yellow;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: yellow;
+}
+
+/* selected link */
+a:active {
+    color: blue;
 }
 
 `

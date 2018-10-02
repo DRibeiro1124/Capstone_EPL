@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArsenalLogo from '../../images/ArsenalLogo.svg'
+// import ArsenalLogo from '../../images/ArsenalLogo.svg'
 import styled from 'styled-components'
 
 const TeamWrapper = styled.div`
@@ -42,7 +42,7 @@ class Arsenal extends Component {
             <TeamWrapper>
                 <div className="main">
                     <p>Arsenal</p>
-                    <img src={ArsenalLogo} className="team-logo" alt="logo" />
+                    <img src="/images/ArsenalLogo.svg" className="team-logo" alt="logo" />
                     <p>Football Club</p>
                 </div>
             </TeamWrapper>

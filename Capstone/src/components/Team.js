@@ -9,7 +9,7 @@ class Team extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            club: {}
+            club: null
         }
     };
 
@@ -23,9 +23,15 @@ class Team extends Component {
     }
     
     render() {
+        if (this.state.club === null){
+            return <h1>Loading...</h1>
+        }
+        const slug = this.state.club.name.replace(/\s/, '');
+
         return (
-            <div>
+            <div className={`team ${slug}`}>
                 <h1>{this.state.club.name}</h1>
+                <img src={`images/${slug}Logo.svg`} />
             </div>
         )
     }
