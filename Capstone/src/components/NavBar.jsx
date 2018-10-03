@@ -68,6 +68,7 @@ class NavBar extends Component {
                         <Link to="/teams">Teams</Link>
                         <Link to="/players">Players</Link>
                         <Link to="/managers">Managers</Link>
+                        <Link to="/stadiums">Stadiums</Link>
                     </ul>
                 </div>
 
