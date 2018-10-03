@@ -17,7 +17,7 @@ const HeaderWrapper = styled.div`
     
     .EPL-logo {
         height: 9em;
-        margin-left: -1em;
+        margin-left: -2em;
         background-image: url(${logo1});
     }
     

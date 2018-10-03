@@ -66,13 +66,8 @@ class NavBar extends Component {
                     <ul>
                         <Link to="/">Home</Link>
                         <Link to="/teams">Teams</Link>
-                        {/* <li>Home</li> */}
-                        {/* <li>Teams</li> */}
-                        {/* <li>Fixtures</li> */}
-                        {/* <li>Current Stats</li> */}
-                        {/* <li>Table</li> */}
-                        {/* <li>Players</li> */}
-                        {/* <li>Managers</li> */}
+                        <Link to="/players">Players</Link>
+                        <Link to="/managers">Managers</Link>
                     </ul>
                 </div>
 

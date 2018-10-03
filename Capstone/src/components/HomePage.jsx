@@ -13,6 +13,7 @@ const HomePageWrapper = styled.div`
 
 .league-table {
     border: 1px solid #32063A;
+    margin-top: 1em;
 }
 
 .main-container {
@@ -41,9 +42,11 @@ h1 {
 
 .standings-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    background-color: #D62E55;
+    font-size: 18px;
+    // background-color: #D62E55;
+    background: #75fa93;
     border: 1px solid black;
     margin-top: 1em;
     border-radius: 15px 75px;
@@ -54,11 +57,9 @@ h1 {
     margin: 0.5em;
 }
 
-.league-table {
-    margin-top: 1em;
-}
 
 .footer-container {
+    border: 2px solid #32063A;
     display: flex;
     margin-top: 1em;
     background-image: url(${logo1});
@@ -70,6 +71,7 @@ h1 {
 }
 
 .glossary {
+    border: 2px solid #32063A;
     margin-top: 1em;
     display: flex;
     flex-direction: row;
@@ -116,7 +118,7 @@ class HomePage extends Component {
                 <div className="main-container">
                     <header className="standings-header">
                         <img src={logo} className="logo" alt="logo" />
-                        <h1>2018/19 English Premier League Standings</h1>
+                        <h1>2018/19 Standings</h1>
                     </header>
                     <table className="league-table">
                         <thead className="table-header">
@@ -135,8 +137,6 @@ class HomePage extends Component {
                         </thead>
                         <tbody>
                             {this.state.teams.sort(function (a, b) { return a.position - b.position }).map((teams, i) => {
-                                // console.log(teams)
-                                // <Link to={`/teams/${team.team_id}`} >{team.team_name}</Link>
                                 return (
                                     <tr key={i}>
                                         <td>{teams.position}</td>
@@ -149,7 +149,7 @@ class HomePage extends Component {
                                         <td>{teams.overall_ga}</td>
                                         <td>{teams.gd}</td>
                                         <td>{teams.points}</td>
-                                    </tr>
+                                    </tr> 
                                 )
                             })}
                         </tbody>
