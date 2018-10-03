@@ -6,7 +6,9 @@ const base_URL = "http://api.football-api.com/2.0/"
 const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
 
 const TeamWrapper = styled.div`
-
+img {
+    height: 15em;
+}
 
 `
 class Team extends Component {
@@ -31,13 +33,13 @@ class Team extends Component {
         if (this.state.club === null){
             return <h1>Loading...</h1>
         }
-        const slug = this.state.club.name.replace(/\s/, '');
+        const slug = this.state.club.name.replace(/\s/g, '');
 
         return (
             <TeamWrapper>
             <div className={`team ${slug}`}>
                 <h1>{this.state.club.name}</h1>
-                <img src={`images/${slug}Logo.svg`} />
+                <img src={`../images/${slug}Logo.svg`} />
             </div>
             </TeamWrapper>
         )

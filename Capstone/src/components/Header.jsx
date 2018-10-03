@@ -72,8 +72,8 @@ class Header extends Component {
                 <section className="teams">
                     <img src={logo} className="EPL-logo" alt="logo" />
                     <img src="/images/ArsenalLogo.svg" className="team-logo" alt="logo" />
-                    <img src="/images/BournemouthLogo.svg" className="team-logo" alt="logo" />
-                    <img src="/images/BrightonLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/AFCBournemouthLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/Brighton&HoveAlbionLogo.svg" className="team-logo" alt="logo" />
                     <img src="/images/BurnleyLogo.svg" className="team-logo" alt="logo" />
                     <img src="/images/CardiffCityLogo.svg" className="team-logo" alt="logo" />
                     <img src="/images/ChelseaLogo.svg" className="team-logo" alt="logo" />
@@ -87,10 +87,10 @@ class Header extends Component {
                     <img src="/images/ManchesterUnitedLogo.svg" className="team-logo" alt="logo" />
                     <img src="/images/NewcastleUnitedLogo.svg" className="team-logo" alt="logo" />
                     <img src="/images/SouthamptonLogo.svg" className="team-logo" alt="logo" />
-                    <img src="/images/TottenhamSpursLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/TottenhamHotspurLogo.svg" className="team-logo" alt="logo" />
                     <img src="/images/WatfordLogo.svg" className="team-logo" alt="logo" />
                     <img src="/images/WestHamUnitedLogo.svg" className="team-logo" alt="logo" />
-                    <img src="/images/WolverhamptonLogo.svg" className="team-logo" alt="logo" />
+                    <img src="/images/WolverhamptonWanderersLogo.svg" className="team-logo" alt="logo" />
                 </section>
 
             </HeaderWrapper>
