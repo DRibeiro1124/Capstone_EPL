@@ -71,7 +71,7 @@ class Team extends Component {
 
         return (
             <TeamWrapper>
-                <div className={`team ${slug}` style={{backgroundColor:this.state.teamcolor}}}>
+                <div className={`team ${slug}`}>
                     <h1>{this.state.club.name}</h1>
                     <img src={`../images/${slug}Logo.svg`} />
                     <section className="team-info">
