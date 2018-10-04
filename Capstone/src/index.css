@@ -18,7 +18,7 @@ h1, h2, h3, h4 {
   font-family: "Premier League", serif;
 }
 
-.team.Arsenal {
+/* .team.Arsenal {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -26,10 +26,4 @@ h1, h2, h3, h4 {
   color: #F7F9FC;
   font-family: "Premier League";
   font-size: 25px;
-}
-
-.team.CrystalPalace {
-  background-color: #DC4D34;
-  color: #194A92;
-  font-family: "Premier League";
-}
+} */

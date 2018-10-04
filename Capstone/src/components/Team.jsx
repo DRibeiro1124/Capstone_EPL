@@ -7,34 +7,30 @@ const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a
 
 const TeamWrapper = styled.div`
 img {
-    height: 15em;
+    height: 8em;
 }
 
-.team-info {
+.team-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    // border: 1px solid blue;
+}
+
+td, th {
+    border-bottom: 2px solid lightgrey;
+}
+
+
+.main-table {
+    padding-top: 1em;
+    border: 1px solid green;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-p {
-    color: #000;
-}
 
-td {
-    border: 1px solid white;
-}
-
-tr {
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 25px;
-    font-family: 'Nunito', sans-serif;
-    color: #000;
-}
-
-.player-info {
-    display: flex;
-    justify-content: space-evenly;
-}
 
 
 `
@@ -63,6 +59,9 @@ class Team extends Component {
             })
     }
 
+    // I'm going to try and fetch my backend information
+
+
     render() {
         if (this.state.loading) {
             return <h1>Loading...</h1>
@@ -72,14 +71,14 @@ class Team extends Component {
         return (
             <TeamWrapper>
                 <div className={`team ${slug}`}>
-                    <h1>{this.state.club.name}</h1>
-                    <img src={`../images/${slug}Logo.svg`} />
-                    <section className="team-info">
+                    <header className="team-header">
+                        <h2>{this.state.club.name}</h2>
+                        <img src={`../images/${slug}Logo.svg`} />
                         <h5>Manager: <p>{this.state.club.coach_name}</p></h5>
                         <h5>Stadium: <p>{this.state.club.venue_name}</p></h5>
-                    </section>
+                    </header>
 
-                    <table>
+                    <table className="main-table">
                         <thead>
                             <tr>
                                 <th>Number</th>
@@ -91,17 +90,19 @@ class Team extends Component {
                         <tbody>
                             {this.state.club.squad.map((players, i) => {
                                 return (
-                                    <tr  key={i} className="player-info">
+                                    <tr key={i} className="player-info">
                                         <td>{this.state.club.squad[i].number}</td>
                                         <td>{this.state.club.squad[i].name}</td>
                                         <td>{this.state.club.squad[i].age}</td>
                                         <td>{this.state.club.squad[i].position}</td>
                                     </tr>
-
                                 )
                             })}
-                    </tbody>
+                        </tbody>
                     </table>
+                    <div>
+                        {/* <img src={this.state.kits.home_kit} /> */}
+                    </div>
                 </div>
             </TeamWrapper>
         )

@@ -3,10 +3,32 @@ import styled from 'styled-components'
 
 const PlayerWrapper = styled.div`
 
-.players {
+.display {
     list-style: none;
-    font-family: 'Nunito', sans-serif;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
+
+.players {
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+}
+
+.positions {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+}
+
+img {
+    12em;
+}
+
+
+
+
+
 
 `
 
@@ -26,13 +48,13 @@ class Players extends Component {
         fetch(`http://localhost:3000/players.json`)
             .then(resp => resp.json())
             .then(players => {
-                console.log(players)
+                // console.log("is this working??", players)
                 this.setState({
                     players: players
                 })
             })
     }
-    
+
     handleSearchTerm = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -46,22 +68,24 @@ class Players extends Component {
     render() {
         return (
             <PlayerWrapper>
-                <section>
-                    <input type="text" placeholder="player name" onChange={this.handleSearchTerm} name="searchTerm"/>
-                <div>
-                    {this.state.players.sort(function (a, b) {
-                        if (a.full_name < b.full_name) return -1;
-                        if (a.full_name > b.full_name) return 1;
-                        return 0
-                    }).map((players, i) => {
-                        return (
-                            <ul key={i} className="">
-                                <li>{this.state.players[i].full_name}</li>
-                                <li>{this.state.players[i].position}</li>
-                            </ul>
-                        )
-                    })}
-                </div>
+                <section className="main">
+                    <input type="text" placeholder="Search Player" onChange={this.handleSearchTerm} name="searchTerm" />
+                    <div>
+                        {this.state.players.sort(function (a, b) {
+                            if (a.full_name < b.full_name) return -1;
+                            if (a.full_name > b.full_name) return 1;
+                            return 0
+                        }).map((players, i) => {
+                            return (
+                                <ul key={i} className="display">
+                                    <li><img src={this.state.players[i].photo} className="photo"></img></li>
+                                    <li className="players">{this.state.players[i].full_name}</li>
+                                    <li className="position">{this.state.players[i].position}</li>
+                                    <li className="number">{this.state.players[i].jersey_number}</li>
+                                </ul>
+                            )
+                        })}
+                    </div>
                 </section>
             </PlayerWrapper>
         );
