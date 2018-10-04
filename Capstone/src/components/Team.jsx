@@ -4,8 +4,8 @@ import Teams from './Teams';
 import { Link } from 'react-router-dom';
 
 
-const base_URL = "http://api.football-api.com/2.0/"
-const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
+// const base_URL = "http://api.football-api.com/2.0/"
+// const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
 
 const TeamWrapper = styled.div`
 img {
@@ -49,8 +49,6 @@ td, th {
 }
 
 
-
-
 `
 class Team extends Component {
 
@@ -70,24 +68,13 @@ class Team extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.match.params.id !== prevProps.match.params.id) {
+        if (this.props.match.params.team !== prevProps.match.params.team) {
             this.updateTeam()
         }
     }
 
     updateTeam() {
-        const id = this.props.match.params.id
-        fetch(`${base_URL}team/${id}?${api_key}`)
-            .then(resp => resp.json())
-            .then(newClub => {
-                console.log(newClub)
-                this.setState({
-                    club: newClub,
-                    loading: false
-                })
-            })
-            // I'm going to try and fetch my back-end information
-
+        const id = this.props.match.params.team
         fetch(`http://localhost:3000/teams.json`)
             .then(resp => resp.json())
             .then(teams => {
@@ -98,6 +85,17 @@ class Team extends Component {
                 })
             })
     }
+        // fetch(`${base_URL}team/${id}?${api_key}`)
+        //     .then(resp => resp.json())
+        //     .then(newClub => {
+        //         console.log(newClub)
+        //         this.setState({
+        //             club: newClub,
+        //             loading: false
+        //         })
+        //     })
+            // I'm going to try and fetch my back-end information
+
 
 
 
@@ -105,17 +103,17 @@ class Team extends Component {
         if (this.state.loading) {
             return <h1>Loading...</h1>
         }
-        const slug = this.state.club.name.replace(/\s/g, '');
+        const slug = this.state.teams.name.replace(/\W/g, '');
         const team = this.state.teams[this.state.club.name]
 
         return (
             <TeamWrapper>
                 <Teams />
-                <Link to={`/teams/${team.team_id}`} >{team.team_name}</Link>
+                <Link to={`/teams/${team.name}`} >{team.name}</Link>
                 <div className={`team ${slug}`}>
                     <header className="team-header">
                         <img src={`../images/${slug}Logo.svg`} />
-                        <h2>{this.state.club.name}</h2>
+                        <h2>{this.state.team.name}</h2>
                     </header>
                     <div className='team-info'>
                         <div>
@@ -152,10 +150,10 @@ class Team extends Component {
                             {this.state.club.squad.map((players, i) => {
                                 return (
                                     <tr key={i} className="player-info">
-                                        <td>{this.state.club.squad[i].number}</td>
-                                        <td>{this.state.club.squad[i].name}</td>
-                                        <td>{this.state.club.squad[i].age}</td>
-                                        <td>{this.state.club.squad[i].position}</td>
+                                        <td>{this.state.team.squad[i].number}</td>
+                                        <td>{this.state.team.squad[i].name}</td>
+                                        <td>{this.state.team.squad[i].age}</td>
+                                        <td>{this.state.team.squad[i].position}</td>
                                     </tr>
                                 )
                             })}

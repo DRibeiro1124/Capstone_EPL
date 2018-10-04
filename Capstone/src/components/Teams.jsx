@@ -38,41 +38,47 @@ const TeamsWrapper = styled.div`
 `
 class Teams extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            teams: []
-        }
-    };
+	constructor(props) {
+		super(props);
+		this.state = {
+			teamButtons: []
+		}
+	};
 
-    componentDidMount() {  
-        fetch(`${base_URL}standings/1204?${api_key}`)
-        .then (resp => resp.json())
-        .then (teams => {
-            this.setState({ teams })
-            // console.log({teams}) it's working. Showing all 20 teams
-        })
-        // fetch(`your api`)
-    }
-    
-    render() {
-        return (
-            <TeamsWrapper>
-                <NavBar />
-                <img src={image} className="EPL-logo" alt="logo" />
-                <div className="wrapper">
-                    {this.state.teams
-                        .sort((a, b) => a.team_name < b.team_name ? -1 : 1)
-                        .map((team) => {
-                            return <div className="teams" key={team.team_id}>
-                                <Link to={`/teams/${team.team_id}`}>{team.team_name}</Link>
-                            </div>
-                        })
-                    }
+	componentDidMount() {
+
+		// see if I can fetch from my back-end
+		fetch(`http://localhost:3000/teams.json`)
+			.then(resp => resp.json())
+			.then(teams => {
+				console.log("hello", teams)
+				this.setState({
+					teamButtons: teams
+
+				})
+			})
+	}
+
+	render() {
+		return (
+			<TeamsWrapper>
+				<NavBar />
+				<img src={image} className="EPL-logo" alt="logo" />
+				<div className="wrapper">
+					{this.state.teamButtons
+						.sort((a, b) => a.team_name < b.team_name ? -1 : 1)
+						.map((team) => {
+							return <div className="teams" key={team.id}>
+								<Link to={`/teams/${team.name.replace(/\W/g, '')}`}><img src={team.logo} /></Link>
+							</div>
+						})
+					}
+
+					IS THIS WORKING?
                 </div>
-            </TeamsWrapper>
-        )
-    }
+			</TeamsWrapper>
+		)
+	}
 }
 
 export default Teams;

@@ -30,3 +30,99 @@ h1, h2, h3, h4 {
   background-color: #DD2F21;
   color: #F7F9FC;
 }
+
+.team.AFCBournemouth {
+  background-color: #C6322D	;
+  color: #F7F9FC;
+}
+
+.team.BrightonHoveAlbion {
+  background-color: #1E54A0	;
+  color: #F7F9FC;
+}
+
+.team.Burnley {
+  background-color: #77294B;
+  color: #9DD1F1;
+}
+
+.team.CardiffCity {
+  background-color:#174172;
+  color: #F7F9FC;
+}
+
+.team.Chelsea {
+  background-color:#001983;
+  color: #F7F9FC;
+}
+
+.team.CrystalPalace {
+  background-color:#DC4D34;
+  color: #194A92;
+  /* color: #F7F9FC; */
+}
+
+.team.Everton {
+  background-color:#0C3896;
+  color: #F7F9FC;
+}
+
+.team.Fulham {
+  background-color:#000;
+  color: #F7F9FC;
+}
+
+.team.HuddersfieldTown {
+  background-color:#2C72C7;
+  color: #F7F9FC;
+}
+
+.team.LeicesterCity {
+  background-color: #0A328A;
+  color: #F7F9FC;
+}
+
+.team.Liverpool {
+  background-color: #A92D2A;
+  color: #F7F9FC;
+}
+
+.team.ManchesterCity {
+  background-color: #A0C4E6	;
+  color: #F7F9FC;
+}
+
+.team.ManchesterUnited {
+  background-color: #BB2F26;
+  color: #FCE84E;
+}
+
+.team.NewcastleUnited {
+  background-color: #000;
+  color: #4EB4EC;
+}
+
+.team.Southampton {
+  background-color: #C7292F;
+    color: #F7F9FC;
+}
+
+.team.TottenhamHotspur {
+  background-color: #121834;
+    color: #F7F9FC;
+}
+
+.team.Watford {
+  background-color: #FAED57;
+    color: #DB3A34;
+}
+
+.team.WestHamUnited {
+  background-color: #722B3A;
+    color: #4EAFE3;
+}
+
+.team.WolverhamptonWanderers {
+  background-color: #F4BB44;
+    color: #221F20	;
+}
