@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Teams from './Teams';
+import { Link } from 'react-router-dom';
 
 
 const base_URL = "http://api.football-api.com/2.0/"
@@ -14,20 +16,36 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    // border: 1px solid blue;
+    margin: 10px;
+    align-items: center; 
+    padding-top: 1em;
+}
+
+.team-header img {
+    height: 15em;
 }
 
 td, th {
-    border-bottom: 2px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
 }
 
 
 .main-table {
     padding-top: 1em;
-    border: 1px solid green;
+    border: 1px solid white;
+    width: 100%;
+}
+
+.kits {
+    padding-top: 2em;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+
+}
+
+.team-info {
+    display: flex;
+    justify-content: space-around;
 }
 
 
@@ -42,11 +60,22 @@ class Team extends Component {
             club: {
                 squad: []
             },
+            teams: {},
             loading: true
         }
     };
 
-    componentDidMount() {
+    componentWillMount() {
+        this.updateTeam()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.id !== prevProps.match.params.id) {
+            this.updateTeam()
+        }
+    }
+
+    updateTeam() {
         const id = this.props.match.params.id
         fetch(`${base_URL}team/${id}?${api_key}`)
             .then(resp => resp.json())
@@ -57,9 +86,19 @@ class Team extends Component {
                     loading: false
                 })
             })
+            // I'm going to try and fetch my back-end information
+
+        fetch(`http://localhost:3000/teams.json`)
+            .then(resp => resp.json())
+            .then(teams => {
+                this.setState({
+                    teams: teams.reduce((acc, team) => {
+                        acc[team.name] = team; return acc
+                    }, {})
+                })
+            })
     }
 
-    // I'm going to try and fetch my backend information
 
 
     render() {
@@ -67,16 +106,38 @@ class Team extends Component {
             return <h1>Loading...</h1>
         }
         const slug = this.state.club.name.replace(/\s/g, '');
+        const team = this.state.teams[this.state.club.name]
 
         return (
             <TeamWrapper>
+                <Teams />
+                <Link to={`/teams/${team.team_id}`} >{team.team_name}</Link>
                 <div className={`team ${slug}`}>
                     <header className="team-header">
-                        <h2>{this.state.club.name}</h2>
                         <img src={`../images/${slug}Logo.svg`} />
-                        <h5>Manager: <p>{this.state.club.coach_name}</p></h5>
-                        <h5>Stadium: <p>{this.state.club.venue_name}</p></h5>
+                        <h2>{this.state.club.name}</h2>
                     </header>
+                    <div className='team-info'>
+                        <div>
+                            <h5>Manager: <p>{this.state.club.coach_name}</p></h5>
+                        </div>
+                        <div>
+                            <h5>Stadium: <p>{this.state.club.venue_name}</p></h5>
+                            <h6>Capacity: {this.state.club.venue_capacity}</h6>
+                        </div>
+                    </div>
+
+                    <div className="kits">
+                        <div>
+                            <img src={team.home_kit} /><h6>Home Kit</h6>
+                        </div>
+                        <div>
+                            <img src={team.away_kit} /><h6>Away Kit</h6>
+                        </div>
+                        <div>
+                            <img src={team.third_kit} /><h6>Third Kit</h6>
+                        </div>
+                    </div>
 
                     <table className="main-table">
                         <thead>
@@ -100,9 +161,6 @@ class Team extends Component {
                             })}
                         </tbody>
                     </table>
-                    <div>
-                        {/* <img src={this.state.kits.home_kit} /> */}
-                    </div>
                 </div>
             </TeamWrapper>
         )

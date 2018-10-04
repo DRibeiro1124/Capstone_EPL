@@ -21,9 +21,6 @@ class App extends Component {
             <Header />
           </section>
           <section>
-            <NavBar />
-          </section>
-          <section>
           <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/teams" exact component={Teams} />

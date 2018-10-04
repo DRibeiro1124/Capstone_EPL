@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import NavBar from './NavBar';
 
 const PlayerWrapper = styled.div`
 
@@ -68,6 +69,7 @@ class Players extends Component {
     render() {
         return (
             <PlayerWrapper>
+                <NavBar />
                 <section className="main">
                     <input type="text" placeholder="Search Player" onChange={this.handleSearchTerm} name="searchTerm" />
                     <div>

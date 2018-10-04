@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import NavBar from './NavBar';
 
 const ManagerWrapper = styled.div`
 .display {
@@ -46,6 +47,7 @@ componentDidMount() {
     render() {
         return (
             <ManagerWrapper>
+                <NavBar />
             <div>
                 <section className="main-container">
                     {this.state.managers.sort(function (a,b) {

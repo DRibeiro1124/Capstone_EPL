@@ -18,12 +18,15 @@ h1, h2, h3, h4 {
   font-family: "Premier League", serif;
 }
 
-/* .team.Arsenal {
+.team {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+}
+
+.team.Arsenal {
   background-color: #DD2F21;
   color: #F7F9FC;
-  font-family: "Premier League";
-  font-size: 25px;
-} */
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import image from '../images/EPL-Logo4.png'
+import NavBar from './NavBar';
 
 
 const base_URL = "http://api.football-api.com/2.0/"
@@ -57,17 +58,18 @@ class Teams extends Component {
     render() {
         return (
             <TeamsWrapper>
-            <img src={image} className="EPL-logo" alt="logo" />
-            <div className="wrapper">
-                {this.state.teams.sort((a, b) => {
-                    if(a.team_name < b.team_name) return -1;
-                    if(a.team_name > b.team_name) return 1;
-                }).map((team) => {
-                    return <div className="teams" key={team.team_id}>
-                    <Link to={`/teams/${team.team_id}`} >{team.team_name}</Link>
+                <NavBar />
+                <img src={image} className="EPL-logo" alt="logo" />
+                <div className="wrapper">
+                    {this.state.teams
+                        .sort((a, b) => a.team_name < b.team_name ? -1 : 1)
+                        .map((team) => {
+                            return <div className="teams" key={team.team_id}>
+                                <Link to={`/teams/${team.team_id}`}>{team.team_name}</Link>
+                            </div>
+                        })
+                    }
                 </div>
-                })}
-            </div>
             </TeamsWrapper>
         )
     }
