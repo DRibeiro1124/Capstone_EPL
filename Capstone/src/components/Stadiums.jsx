@@ -51,6 +51,8 @@ li {
 
 `
 
+
+
 class Stadiums extends Component {
 
     constructor(props) {
@@ -64,7 +66,7 @@ class Stadiums extends Component {
         fetch(`http://localhost:3000/teams.json`)
             .then(resp => resp.json())
             .then(stadiums => {
-                // console.log(stadiums)
+                console.log(stadiums)
                 this.setState({
                     stadiums: stadiums
                 })
@@ -76,16 +78,18 @@ class Stadiums extends Component {
         return (
             <StadiumWrapper>
                 <NavBar />
+                
                 <img src={logo} className="EPL-Logo" alt="logo" />
                 <div className='stadiums'>
                     <ul>
                         {this.state.stadiums.map((stadium, i) => {
                             return (
-                                <div className='teams-info' key={i}>
+                                <div className='teams-info' key={i} style={{backgroundColor:stadium.primary_color}}>
                                     <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
                                     <li>{stadium.stadium_name}</li>
                                     <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
                                     <li>{stadium.name}</li>
+                                    <li>{stadium.primary_color}</li>
                                 </div>
                             )
                         })}

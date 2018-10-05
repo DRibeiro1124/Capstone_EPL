@@ -5,8 +5,8 @@ import image from '../images/EPL-Logo4.png'
 import NavBar from './NavBar';
 
 
-const base_URL = "http://api.football-api.com/2.0/"
-const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
+// const base_URL = "http://api.football-api.com/2.0/"
+// const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
 
 
 const TeamsWrapper = styled.div`
@@ -63,8 +63,7 @@ class Teams extends Component {
 			.then(teams => {
 				console.log("hello", teams)
 				this.setState({
-					teamButtons: teams
-
+					teamButtons: teams.sort((a, b) => a.name < b.name ? -1 : 1)
 				})
 			})
 	}
@@ -76,10 +75,9 @@ class Teams extends Component {
 				<img src={image} className="EPL-logo" alt="logo" />
 				<div className="wrapper">
 					{this.state.teamButtons
-						.sort((a, b) => a.team_name < b.team_name ? -1 : 1)
 						.map((team) => {
 							return <div className="teams" key={team.id}>
-								<Link to={`/teams/${team.name.replace(/\W/g, '')}`}><img src={team.logo} /></Link>
+								<Link to={`/teams/${team.name.replace(/\W/g, '')}`}><img src={team.logo} alt="team-logo" /></Link>
 							</div>
 						})
 					}

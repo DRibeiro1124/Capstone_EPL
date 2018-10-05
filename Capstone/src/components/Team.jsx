@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const TeamWrapper = styled.div`
 img {
-    height: 8em;
+    /*height: 8em;*/
 }
 
 .team-header {
@@ -59,7 +59,7 @@ class Team extends Component {
         this.state = {
             club: {
                 squad: [],
-                name:props.match.params.id
+                name: props.match.params.id
             },
             teams: {},
             loading: true
@@ -78,22 +78,15 @@ class Team extends Component {
 
     updateTeam() {
         const id = this.props.match.params.id
-        // fetch(`${base_URL}team/${id}?${api_key}`)
-        //     .then(resp => resp.json())
-        //     .then(newClub => {
-        //         console.log(newClub)
-        //         this.setState({
-        //             club: newClub,
-        //             loading: false
-        //         })
-        //     })
-            // I'm going to try and fetch my back-end information
-
         fetch(`http://localhost:3000/teams.json`)
             .then(resp => resp.json())
             .then(teams => {
                 this.setState({
-                    loading:false,
+                    loading: false,
+                    club:{
+                        name:id,
+                        squad: [],
+                    },
                     teams: teams.reduce((acc, team) => {
                         acc[team.name.replace(/\W/g, '')] = team; return acc
                     }, {})
@@ -107,15 +100,14 @@ class Team extends Component {
         if (this.state.loading) {
             return <h1>Loading...</h1>
         }
-        
+
         const slug = this.state.club.name.replace(/\W/g, '');
-        console.log({slug, name:this.state.club.name, teams:this.state.teams})
+        console.log({ slug, name: this.state.club.name, teams: this.state.teams })
         const team = this.state.teams[this.state.club.name]
 
         return (
             <TeamWrapper>
                 <Teams />
-                <Link to={`/teams/${team.team_id}`} >{team.team_name}</Link>
                 <div className={`team ${slug}`}>
                     <header className="team-header">
                         <img src={`../images/${slug}Logo.svg`} alt='logo' />
