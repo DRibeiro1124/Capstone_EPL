@@ -58,7 +58,7 @@ componentDidMount() {
                             return (
                                 <ul key={i} className="display">
                                     <li className="manager">{this.state.managers[i].full_name}</li>
-                                    <li><img src={this.state.managers[i].photo} className="photo" /></li>
+                                    <li><img src={this.state.managers[i].photo} className="photo" alt="manager" /></li>
                                 </ul>
                             )
                         })

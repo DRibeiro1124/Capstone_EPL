@@ -8,7 +8,7 @@ class CreateTeams < ActiveRecord::Migration[5.2]
       t.string :lead_partner_logo
       t.string :club_partner_logo
       t.string :stadium
-
+    
       t.timestamps
     end
   end

@@ -49,6 +49,8 @@ td, th {
 }
 
 
+
+
 `
 class Team extends Component {
 
@@ -56,7 +58,8 @@ class Team extends Component {
         super(props);
         this.state = {
             club: {
-                squad: []
+                squad: [],
+                name:props.match.params.id
             },
             teams: {},
             loading: true
@@ -68,23 +71,13 @@ class Team extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.match.params.team !== prevProps.match.params.team) {
+        if (this.props.match.params.id !== prevProps.match.params.id) {
             this.updateTeam()
         }
     }
 
     updateTeam() {
-        const id = this.props.match.params.team
-        fetch(`http://localhost:3000/teams.json`)
-            .then(resp => resp.json())
-            .then(teams => {
-                this.setState({
-                    teams: teams.reduce((acc, team) => {
-                        acc[team.name] = team; return acc
-                    }, {})
-                })
-            })
-    }
+        const id = this.props.match.params.id
         // fetch(`${base_URL}team/${id}?${api_key}`)
         //     .then(resp => resp.json())
         //     .then(newClub => {
@@ -96,6 +89,17 @@ class Team extends Component {
         //     })
             // I'm going to try and fetch my back-end information
 
+        fetch(`http://localhost:3000/teams.json`)
+            .then(resp => resp.json())
+            .then(teams => {
+                this.setState({
+                    loading:false,
+                    teams: teams.reduce((acc, team) => {
+                        acc[team.name.replace(/\W/g, '')] = team; return acc
+                    }, {})
+                })
+            })
+    }
 
 
 
@@ -103,17 +107,19 @@ class Team extends Component {
         if (this.state.loading) {
             return <h1>Loading...</h1>
         }
-        const slug = this.state.teams.name.replace(/\W/g, '');
+        
+        const slug = this.state.club.name.replace(/\W/g, '');
+        console.log({slug, name:this.state.club.name, teams:this.state.teams})
         const team = this.state.teams[this.state.club.name]
 
         return (
             <TeamWrapper>
                 <Teams />
-                <Link to={`/teams/${team.name}`} >{team.name}</Link>
+                <Link to={`/teams/${team.team_id}`} >{team.team_name}</Link>
                 <div className={`team ${slug}`}>
                     <header className="team-header">
-                        <img src={`../images/${slug}Logo.svg`} />
-                        <h2>{this.state.team.name}</h2>
+                        <img src={`../images/${slug}Logo.svg`} alt='logo' />
+                        <h2>{this.state.club.name}</h2>
                     </header>
                     <div className='team-info'>
                         <div>
@@ -127,13 +133,13 @@ class Team extends Component {
 
                     <div className="kits">
                         <div>
-                            <img src={team.home_kit} /><h6>Home Kit</h6>
+                            <img src={team.home_kit} alt='home-kit' /><h6>Home Kit</h6>
                         </div>
                         <div>
-                            <img src={team.away_kit} /><h6>Away Kit</h6>
+                            <img src={team.away_kit} alt='away-kit' /><h6>Away Kit</h6>
                         </div>
                         <div>
-                            <img src={team.third_kit} /><h6>Third Kit</h6>
+                            <img src={team.third_kit} alt='third-kit' /><h6>Third Kit</h6>
                         </div>
                     </div>
 
@@ -150,10 +156,10 @@ class Team extends Component {
                             {this.state.club.squad.map((players, i) => {
                                 return (
                                     <tr key={i} className="player-info">
-                                        <td>{this.state.team.squad[i].number}</td>
-                                        <td>{this.state.team.squad[i].name}</td>
-                                        <td>{this.state.team.squad[i].age}</td>
-                                        <td>{this.state.team.squad[i].position}</td>
+                                        <td>{this.state.club.squad[i].number}</td>
+                                        <td>{this.state.club.squad[i].name}</td>
+                                        <td>{this.state.club.squad[i].age}</td>
+                                        <td>{this.state.club.squad[i].position}</td>
                                     </tr>
                                 )
                             })}

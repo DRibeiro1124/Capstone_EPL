@@ -8,7 +8,9 @@ const PlayerWrapper = styled.div`
     list-style: none;
     border: 1px solid black;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -22,12 +24,9 @@ const PlayerWrapper = styled.div`
     font-size: 12px;
 }
 
-img {
-    12em;
+.player-photo {
+    height: 5em;
 }
-
-
-
 
 
 
@@ -49,7 +48,6 @@ class Players extends Component {
         fetch(`http://localhost:3000/players.json`)
             .then(resp => resp.json())
             .then(players => {
-                // console.log("is this working??", players)
                 this.setState({
                     players: players
                 })
@@ -80,7 +78,7 @@ class Players extends Component {
                         }).map((players, i) => {
                             return (
                                 <ul key={i} className="display">
-                                    <li><img src={this.state.players[i].photo} className="photo"></img></li>
+                                    <li><img src={this.state.players[i].photo} className="player-photo" alt='player'></img></li>
                                     <li className="players">{this.state.players[i].full_name}</li>
                                     <li className="position">{this.state.players[i].position}</li>
                                     <li className="number">{this.state.players[i].jersey_number}</li>

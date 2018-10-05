@@ -13,6 +13,7 @@
       <th>Principal Partner Logo</th>
       <th>Kit Supplier Logo</th>
       <th>Stadium</th>
+      <th>Stadium Name</th>
       <th>Primary Color</th>
       <th>Secondary Color</th>
       <th colspan="3"></th>
@@ -30,6 +31,7 @@
         <td><img src="<%= team.lead_partner_logo %>" class="sponsor"></td>
         <td><img src="<%= team.club_partner_logo %>" class="sponsor"></td>
         <td><img src="<%= team.stadium %>" class="stadium"></td>
+        <td><%= team.stadium_name %></td>
         <td><%= team.primary_color %></td>
         <td><%= team.secondary_color %></td>
         <td><%= link_to 'Show', team %></td>

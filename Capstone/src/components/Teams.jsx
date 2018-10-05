@@ -32,7 +32,17 @@ const TeamsWrapper = styled.div`
 }
 
 .EPL-logo {
-    height: 3em;
+	height: 8em;
+	border: 1px solid #32063A;
+    background-color: #75fa93;
+    border-radius: 15px 75px;
+	margin: 10px;
+	box-shadow: 10px 10px;
+}
+
+img {
+	height: 2.5em;
+	justify-content: space-evenly;
 }
 
 `
@@ -74,7 +84,6 @@ class Teams extends Component {
 						})
 					}
 
-					IS THIS WORKING?
                 </div>
 			</TeamsWrapper>
 		)
