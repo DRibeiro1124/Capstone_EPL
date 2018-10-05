@@ -5,30 +5,14 @@ import image from '../images/EPL-Logo4.png'
 import NavBar from './NavBar';
 
 
-// const base_URL = "http://api.football-api.com/2.0/"
-// const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
-
-
 const TeamsWrapper = styled.div`
 
-.teams {
-    font-size: 30px;
-    font-family: "Premier-League";
-    background: #F7F9FC;
-    margin: 0 15px;
-    color: #32063A;
-}
-
-.teams a {
-    text-decoration: none;
-    
-}
-
-.wrapper {
+.teams-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 3em;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 3em;
+	text-decoration: none;
 }
 
 .EPL-logo {
@@ -41,8 +25,19 @@ const TeamsWrapper = styled.div`
 }
 
 img {
-	height: 2.5em;
+	height: 3em;
 	justify-content: space-evenly;
+}
+
+p {
+	font-family: 'Nunito', sans-serif;
+	font-size: 13px;
+	margin: 10px; 
+}
+
+// remove line from links
+a {
+	text-decoration: none;
 }
 
 `
@@ -73,16 +68,18 @@ class Teams extends Component {
 			<TeamsWrapper>
 				<NavBar />
 				<img src={image} className="EPL-logo" alt="logo" />
-				<div className="wrapper">
+				<div className="teams-container">
 					{this.state.teamButtons
 						.map((team) => {
 							return <div className="teams" key={team.id}>
-								<Link to={`/teams/${team.name.replace(/\W/g, '')}`}><img src={team.logo} alt="team-logo" /></Link>
+								<Link to={`/teams/${team.name.replace(/\W/g, '')}`}>
+									<img src={team.logo} alt="team-logo" />
+									<p>{team.name}</p></Link>
 							</div>
 						})
 					}
 
-                </div>
+				</div>
 			</TeamsWrapper>
 		)
 	}

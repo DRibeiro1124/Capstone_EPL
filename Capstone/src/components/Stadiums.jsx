@@ -9,10 +9,11 @@ const StadiumWrapper = styled.div`
 .stadiums {
     display: flex;
     flex-direction: column;
+    padding: 2em;
 }
 
 .EPL-Logo {
-    height: 8em;
+    height: 160px;
     border: 1px solid #32063A;
     background-color: #75fa93;
     border-radius: 15px 75px;
@@ -20,32 +21,30 @@ const StadiumWrapper = styled.div`
     box-shadow: 10px 10px;
 }
 
-img {
-    height: 12em;
-}
-
-span {
-    font-family: "Premier League", serif;
+.stadium-image {
+    height: 200px;
+    width: 300px; 
 }
 
 li {
     list-style: none;
+    
 }
 
 .teams-info {
     border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Premier League", serif;
+    padding: 1em;
+    font-size: 15px;
+    margin: 10px;
 }
 
-.stadium-image {
-    height: 200px;
-    width: 50%;
-}
 
 .team-logo {
-    height: 5em;
-    border: 1px solid black;
-    border-radius: 4em;
-    padding: 0.5em;
+    height: 120px;
 }
 
 
@@ -81,19 +80,20 @@ class Stadiums extends Component {
                 
                 <img src={logo} className="EPL-Logo" alt="logo" />
                 <div className='stadiums'>
-                    <ul>
-                        {this.state.stadiums.map((stadium, i) => {
+                        {this.state.stadiums.sort(function (a, b) {
+                            if (a.stadium_name < b.stadium_name) return -1;
+                            if (a.stadium_name > b.stadium_name) return 1;
+                            return 0
+                        }).map((stadium, i) => {
                             return (
-                                <div className='teams-info' key={i} style={{backgroundColor:stadium.primary_color}}>
+                                <div className='teams-info' key={i} style={{backgroundColor:stadium.primary_color}}> 
                                     <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
-                                    <li>{stadium.stadium_name}</li>
+                                    <li style={{color:stadium.secondary_color}}>{stadium.stadium_name}</li>
                                     <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
-                                    <li>{stadium.name}</li>
-                                    <li>{stadium.primary_color}</li>
+                                    <li style={{color:stadium.secondary_color}}>{stadium.name}</li>
                                 </div>
                             )
                         })}
-                    </ul>
                 </div>
             </StadiumWrapper>
         );

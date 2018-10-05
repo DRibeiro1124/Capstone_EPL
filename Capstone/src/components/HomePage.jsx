@@ -50,6 +50,7 @@ h1 {
     border: 1px solid black;
     margin-top: 1em;
     border-radius: 15px 75px;
+    box-shadow: 10px 8px;
 }
 
 .logo {
