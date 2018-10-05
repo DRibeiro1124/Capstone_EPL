@@ -7,8 +7,9 @@ const ManagerWrapper = styled.div`
     list-style: none;
     border: 1px solid black;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 2em;
 }
 
 .manager {
@@ -36,7 +37,7 @@ componentDidMount() {
     fetch(`http://localhost:3000/managers.json`)
         .then(resp => resp.json())
         .then(managers => {
-            // console.log("is this working", managers)
+            console.log("is this working", managers)
             this.setState({
                 managers: managers
             })
@@ -57,8 +58,9 @@ componentDidMount() {
                     }).map((managers, i) => {
                             return (
                                 <ul key={i} className="display">
-                                    <li className="manager">{this.state.managers[i].full_name}</li>
                                     <li><img src={this.state.managers[i].photo} className="photo" alt="manager" /></li>
+                                    <li className="manager">{this.state.managers[i].full_name}</li>
+                                    <li className="manager">{this.state.managers[i].full_name}</li>
                                 </ul>
                             )
                         })

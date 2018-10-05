@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Teams from './Teams';
-import { Link } from 'react-router-dom';
 
 
-// const base_URL = "http://api.football-api.com/2.0/"
-// const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
 
 const TeamWrapper = styled.div`
 img {

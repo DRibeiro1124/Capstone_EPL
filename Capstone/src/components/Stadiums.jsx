@@ -23,7 +23,7 @@ const StadiumWrapper = styled.div`
 
 .stadium-image {
     height: 200px;
-    width: 300px; 
+    width: 400px; 
 }
 
 li {

@@ -4,30 +4,33 @@ import NavBar from './NavBar';
 
 const PlayerWrapper = styled.div`
 
-.display {
-    list-style: none;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
 .players {
     font-family: 'Nunito', sans-serif;
-    font-size: 25px;
 }
 
-.positions {
+.position {
     font-family: 'Nunito', sans-serif;
     font-size: 12px;
 }
 
-.player-photo {
-    height: 5em;
+.head-shot {
+    height: 12em;
 }
 
+.player-card {
+    border: 1px solid black;
+    border-radius: 1em;
+    margin: 5px;
+    display: flex;  
+    justify-content: space-between;
+    padding: 1em;
+    align-items: center;
+}
+
+.number {
+    font-size: 20px
+    font-family: "Premier-League";
+}
 
 
 `
@@ -39,7 +42,8 @@ class Players extends Component {
         super(props);
         this.state = {
             players: [],
-            searchTerm: ''
+            searchTerm: '',
+            teams: []
         }
     };
 
@@ -51,7 +55,15 @@ class Players extends Component {
                 this.setState({
                     players: players
                 })
-            })
+            });
+
+        // fetch(`http://localhost:3000/teams.json`)
+        // .then(resp => resp.json())
+        // .then(teams => {
+        //     this.setState({
+        //         teams: teams
+        //     })
+        // })
     }
 
     handleSearchTerm = (e) => {
@@ -68,8 +80,8 @@ class Players extends Component {
         return (
             <PlayerWrapper>
                 <NavBar />
-                <section className="main">
                     <input type="text" placeholder="Search Player" onChange={this.handleSearchTerm} name="searchTerm" />
+                <section className='main-container'>
                     <div>
                         {this.state.players.sort(function (a, b) {
                             if (a.full_name < b.full_name) return -1;
@@ -77,12 +89,12 @@ class Players extends Component {
                             return 0
                         }).map((players, i) => {
                             return (
-                                <ul key={i} className="display">
-                                    <li><img src={this.state.players[i].photo} className="player-photo" alt='player'></img></li>
-                                    <li className="players">{this.state.players[i].full_name}</li>
-                                    <li className="position">{this.state.players[i].position}</li>
-                                    <li className="number">{this.state.players[i].jersey_number}</li>
-                                </ul>
+                                <div key={i} className="player-card">
+                                    <p><img src={this.state.players[i].photo} className="head-shot" alt='player'></img></p>
+                                    <p className="players">{this.state.players[i].full_name}</p>
+                                    <p className="position">{this.state.players[i].position}</p>
+                                    <p className="number">{this.state.players[i].jersey_number}</p>
+                                </div>
                             )
                         })}
                     </div>
