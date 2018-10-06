@@ -32,6 +32,15 @@ const PlayerWrapper = styled.div`
     font-family: "Premier-League";
 }
 
+.team-logo {
+    height: 5em;
+}
+
+.flag {
+    height: 4em; 
+    border: 1px solid black;
+}
+
 
 `
 
@@ -52,6 +61,7 @@ class Players extends Component {
         fetch(`http://localhost:3000/players.json`)
             .then(resp => resp.json())
             .then(players => {
+                console.log(players, "what the fuck")
                 this.setState({
                     players: players
                 })
@@ -94,6 +104,8 @@ class Players extends Component {
                                     <p className="players">{this.state.players[i].full_name}</p>
                                     <p className="position">{this.state.players[i].position}</p>
                                     <p className="number">{this.state.players[i].jersey_number}</p>
+                                    <p><img src={this.state.players[i].team} className="team-logo" alt='logo'></img></p>
+                                    <p><img src={this.state.players[i].country} className="flag" alt='flag'></img></p>
                                 </div>
                             )
                         })}

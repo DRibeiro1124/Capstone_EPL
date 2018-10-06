@@ -40,10 +40,26 @@ td, th {
 
 }
 
+.kits img {
+    height: 10em; 
+}
+
+
+
 .team-info {
     display: flex;
     justify-content: space-around;
 }
+
+.sponsors {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sponsors img {
+    height: 3em;
+}
+
 
 
 
@@ -88,7 +104,16 @@ class Team extends Component {
                         acc[team.name.replace(/\W/g, '')] = team; return acc
                     }, {})
                 })
-            })
+            });
+
+            // fetch(` http://localhost3000/players.json`)
+            // .then(resp => resp.json())
+            // .then(players => {
+            //     console.log(players, 'fucking work')
+            //     this.setState({
+            //         players: players
+            //     })
+            // } )
     }
 
 
@@ -129,6 +154,15 @@ class Team extends Component {
                         </div>
                         <div>
                             <img src={team.third_kit} alt='third-kit' /><h6>Third Kit</h6>
+                        </div>
+                    </div>
+
+                    <div className="sponsors">
+                        <div>
+                            <img src={team.club_partner_logo} alt='sponsor' /><h6>Shirt Sponsor</h6>
+                        </div>
+                        <div>
+                            <img src={team.lead_partner_logo} alt='kit-provider' /><h6>Kit Provider</h6>
                         </div>
                     </div>
 

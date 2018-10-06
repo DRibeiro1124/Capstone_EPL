@@ -56,7 +56,7 @@ class Teams extends Component {
 		fetch(`http://localhost:3000/teams.json`)
 			.then(resp => resp.json())
 			.then(teams => {
-				console.log("hello", teams)
+				// console.log("hello", teams)
 				this.setState({
 					teamButtons: teams.sort((a, b) => a.name < b.name ? -1 : 1)
 				})
