@@ -61,7 +61,7 @@ class Players extends Component {
         fetch(`http://localhost:3000/players.json`)
             .then(resp => resp.json())
             .then(players => {
-                console.log(players, "what the fuck")
+                console.log(players, "working?")
                 this.setState({
                     players: players
                 })
@@ -105,7 +105,7 @@ class Players extends Component {
                                     <p className="position">{this.state.players[i].position}</p>
                                     <p className="number">{this.state.players[i].jersey_number}</p>
                                     <p><img src={this.state.players[i].team} className="team-logo" alt='logo'></img></p>
-                                    <p><img src={this.state.players[i].country} className="flag" alt='flag'></img></p>
+                                    {/* <p><img src={this.state.players[i].country} className="flag" alt='flag'></img></p> */}
                                 </div>
                             )
                         })}

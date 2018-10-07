@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Teams from './Teams';
 
-
-
 const TeamWrapper = styled.div`
 img {
     /*height: 8em;*/
@@ -106,14 +104,7 @@ class Team extends Component {
                 })
             });
 
-            // fetch(` http://localhost3000/players.json`)
-            // .then(resp => resp.json())
-            // .then(players => {
-            //     console.log(players, 'fucking work')
-            //     this.setState({
-            //         players: players
-            //     })
-            // } )
+            
     }
 
 
@@ -124,7 +115,7 @@ class Team extends Component {
         }
 
         const slug = this.state.club.name.replace(/\W/g, '');
-        console.log({ slug, name: this.state.club.name, teams: this.state.teams })
+        // console.log({ slug, name: this.state.club.name, teams: this.state.teams })
         const team = this.state.teams[this.state.club.name]
 
         return (
@@ -145,7 +136,7 @@ class Team extends Component {
                         </div>
                     </div>
 
-                    <div className="kits">
+                    {/* <div className="kits">
                         <div>
                             <img src={team.home_kit} alt='home-kit' /><h6>Home Kit</h6>
                         </div>
@@ -164,9 +155,10 @@ class Team extends Component {
                         <div>
                             <img src={team.lead_partner_logo} alt='kit-provider' /><h6>Kit Provider</h6>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <table className="main-table">
+
+                    {/* <table className="main-table">
                         <thead>
                             <tr>
                                 <th>Number</th>
@@ -187,7 +179,7 @@ class Team extends Component {
                                 )
                             })}
                         </tbody>
-                    </table>
+                    </table> */}
                 </div>
             </TeamWrapper>
         )
