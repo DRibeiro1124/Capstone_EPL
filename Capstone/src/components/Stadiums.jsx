@@ -8,9 +8,10 @@ const StadiumWrapper = styled.div`
 
 .stadiums {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-top: 10px;
-    align-items: center;
+    justify-content: space-evenly;
 }
 
 .EPL-Logo {
@@ -24,7 +25,7 @@ const StadiumWrapper = styled.div`
 
 .stadium-image {
     height: 300px;
-    width: 600px; 
+    width: 400px; 
 }
 
 li {
@@ -63,8 +64,10 @@ li {
 	}
 
 .flip-container, .front, .back {
-	width: 1000px;
-    height: 500px;    
+	width: 500px;
+    height: 650px; 
+    display: flex;
+    flex-direction: column;
 }
 
 

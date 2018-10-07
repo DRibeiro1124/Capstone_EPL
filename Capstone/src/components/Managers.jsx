@@ -37,12 +37,15 @@ li {
     font-size: 24px;
     font-family: "Premier-League";
     font-weight: 900;
+    color: white;
 }
 
 .front {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-image: url(${photo});
+    background-repeat: no-repeat;
 }
 
 /* entire container, keeps perspective */
@@ -133,6 +136,7 @@ class Managers extends Component {
                             if (a.full_name > b.full_name) return 1;
                             return 0
                         }).map((managers, i) => {
+                           
                             return (
                                 <section className='main-container' key={i}>
                                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -161,3 +165,6 @@ class Managers extends Component {
 }
 
 export default Managers;
+
+
+// const backgroundLogo = {this.state.managers[i].club}
