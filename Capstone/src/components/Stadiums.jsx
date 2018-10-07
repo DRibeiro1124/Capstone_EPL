@@ -9,7 +9,8 @@ const StadiumWrapper = styled.div`
 .stadiums {
     display: flex;
     flex-direction: column;
-    padding: 2em;
+    padding-top: 10px;
+    align-items: center;
 }
 
 .EPL-Logo {
@@ -22,13 +23,13 @@ const StadiumWrapper = styled.div`
 }
 
 .stadium-image {
-    height: 200px;
-    width: 400px; 
+    height: 300px;
+    width: 600px; 
 }
 
 li {
     list-style: none;
-    
+    font-family: "Premier League", serif; 
 }
 
 .teams-info {
@@ -36,7 +37,6 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: "Premier League", serif;
     padding: 1em;
     font-size: 15px;
     margin: 10px;
@@ -47,6 +47,53 @@ li {
     height: 120px;
 }
 
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+    border: 2px solid #32063A; 
+    border-radius: 10px;
+    // overflow: scroll;
+    overflow: auto;
+}
+
+
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 1000px;
+    height: 500px;    
+}
+
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+    
+}
 
 `
 
@@ -86,12 +133,41 @@ class Stadiums extends Component {
                             return 0
                         }).map((stadium, i) => {
                             return (
-                                <div className='teams-info' key={i} style={{backgroundColor:stadium.primary_color}}> 
-                                    <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
-                                    <li style={{color:stadium.secondary_color}}>{stadium.stadium_name}</li>
-                                    <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
-                                    <li style={{color:stadium.secondary_color}}>{stadium.name}</li>
+                                <section className='main-container' key={i}>
+                                <div className="flip-container" onTouchStart="this.classList.toggle('hover');">
+                                    <div className="flipper">
+                                        <div className="front" style={{backgroundColor:stadium.primary_color}}>
+                                            {/* front content */}
+                                            <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
+                                            <li style={{color:stadium.secondary_color}}>{stadium.stadium_name}</li>
+                                            <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
+                                            <li style={{color:stadium.secondary_color}}>{stadium.name}</li>
+                                        </div>
+                                        <div className="back" style={{backgroundColor:stadium.primary_color}}>
+                                            {/* back content */}
+                                            {/* <p className='bio'>{this.state.managers[i].bio}</p> */}
+                                            <p style={{color:stadium.secondary_color}}>{stadium.stadium_info}</p>
+                                        </div>
+                                    </div>
                                 </div>
+                            </section>
+
+
+
+
+
+
+
+
+
+
+
+                                // <div className='teams-info' key={i} style={{backgroundColor:stadium.primary_color}}> 
+                                //     <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
+                                //     <li style={{color:stadium.secondary_color}}>{stadium.stadium_name}</li>
+                                //     <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
+                                //     <li style={{color:stadium.secondary_color}}>{stadium.name}</li>
+                                // </div>
                             )
                         })}
                 </div>

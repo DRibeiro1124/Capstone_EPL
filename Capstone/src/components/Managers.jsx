@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import NavBar from './NavBar';
 import photo from '../images/EPL-Background.jpg'
 
+
+
+
 const ManagerWrapper = styled.div`
 
 .main-container {
@@ -12,19 +15,22 @@ const ManagerWrapper = styled.div`
     justify-content: space-evenly;
 }
 
-img {
-    height: 14em;
-    padding-top: 10px;
+.logo {
+    height: 4em;
+}
+
+.photo {
+    height: 11em;
 }
 
 p {
-    font-size: 11px;
-    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    // font-family: 'Nunito', sans-serif;
+    font-family: "Premier-League";
 }
 
 li {
     list-style: none;
-    font-family: 'Nunito', sans-serif;
 }
 
 .manager {
@@ -33,14 +39,21 @@ li {
     font-weight: 900;
 }
 
+.front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 /* entire container, keeps perspective */
 .flip-container {
     perspective: 1000px;
-    border: 8px solid #32063A; 
+    border: 2px solid #32063A; 
     border-radius: 10px;
-    
-
+    // overflow: scroll;
+    overflow: auto;
 }
+
 
 	/* flip the pane when hovered */
 	.flip-container:hover .flipper, .flip-container.hover .flipper {
@@ -48,10 +61,12 @@ li {
 	}
 
 .flip-container, .front, .back {
-	width: 400px;
-    height: 600px;
+	width: 250px;
+    height: 400px;
     margin-bottom: 10px;
+    
 }
+
 
 /* flip speed goes here */
 .flipper {
@@ -66,7 +81,6 @@ li {
 	position: absolute;
 	top: 0;
     left: 0;
-    background-image: {{photo}}
 }
 
 /* front pane, placed above back */
@@ -77,8 +91,10 @@ li {
 
 /* back, initially hidden pane */
 .back {
-	transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    
 }
+
 
 
 `
@@ -108,6 +124,7 @@ class Managers extends Component {
     render() {
         return (
             <ManagerWrapper>
+                
                 <NavBar />
                 <div>
                     <section className="main-container">
@@ -117,12 +134,11 @@ class Managers extends Component {
                             return 0
                         }).map((managers, i) => {
                             return (
-                                <section className='main-container'>
+                                <section className='main-container' key={i}>
                                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                                         <div class="flipper">
                                             <div class="front">
                                                 {/* front content */}
-                                                {/* <img src={photo} className="logo" alt="logo" /> */}
                                                 <img src={this.state.managers[i].photo} className="photo" alt="manager" />
                                                 <li className='manager'>{this.state.managers[i].full_name}</li>
                                                 <img src={this.state.managers[i].club} className="logo" alt="logo" />
