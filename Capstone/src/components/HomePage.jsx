@@ -16,6 +16,14 @@ const HomePageWrapper = styled.div`
     margin-top: 1em;
 }
 
+.league-table tbody tr:not(.is-selected):nth-child(odd) {
+    background-color: #D62E55;
+}
+
+.league-table tbody tr:not(.is-selected):nth-child(even) {
+    background-color: #32063A;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -31,8 +39,18 @@ const HomePageWrapper = styled.div`
 
 
 td {
-    background-color: #D62E55;
-    color: white;
+    color: #FFF
+    border-bottom: 1px solid #FFF;
+    text-align: center;
+}
+
+tr:hover td {
+    color: black;
+}
+
+th {
+    text-align: center;
+    // background-color: #6CEEFC;
 }
 
 
@@ -122,19 +140,19 @@ class HomePage extends Component {
                         <img src={logo} className="logo" alt="logo" />
                         <h1>2018/19 Standings</h1>
                     </header>
-                    <table className="league-table">
-                        <thead className="table-header">
+                    <table className="league-table table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                        <thead className='table-header'>
                             <tr>
-                                <th>Pos</th>
-                                <th>Club</th>
-                                <th>GP</th>
-                                <th>W</th>
-                                <th>D</th>
-                                <th>L</th>
-                                <th>GF</th>
-                                <th>GA</th>
-                                <th>GD</th>
-                                <th>P</th>
+                                <th><abbr title="Position">Pos</abbr></th>
+                                <th>Team</th>
+                                <th><abbr title="Played">Pld</abbr></th>
+                                <th><abbr title="Won">W</abbr></th>
+                                <th><abbr title="Drawn">D</abbr></th>
+                                <th><abbr title="Lost">L</abbr></th>
+                                <th><abbr title="Goals for">GF</abbr></th>
+                                <th><abbr title="Goals against">GA</abbr></th>
+                                <th><abbr title="Goal difference">GD</abbr></th>
+                                <th><abbr title="Points">Pts</abbr></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,7 +169,7 @@ class HomePage extends Component {
                                         <td>{teams.overall_ga}</td>
                                         <td>{teams.gd}</td>
                                         <td>{teams.points}</td>
-                                    </tr> 
+                                    </tr>
                                 )
                             })}
                         </tbody>
@@ -161,7 +179,7 @@ class HomePage extends Component {
                         <div className="footer-info">
                             <h6>Positions 1, 2, 3, 4: Champions League</h6>
                             <h6>Position 5: Europa League</h6>
-                            <h6>Positions 18, 19, 20: Relegation</h6>
+                            <h6>Positions 18, 19, 20: Relegation to the <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship">Football League Championship</a></h6>
                         </div>
                     </footer>
                     <div className="glossary">

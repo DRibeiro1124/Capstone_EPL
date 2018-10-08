@@ -12,7 +12,6 @@ ul {
     background: #32063A;
     color: white;
     list-style-type: none;
-    padding: 2em;
     margin: 15px;
     border-radius: 15px 75px;
     
@@ -64,11 +63,51 @@ class NavBar extends Component {
             <NavBarWrapper>
                 <div>
                     <ul>
-                        <Link to="/">Home</Link>
-                        <Link to="/teams">Teams</Link>
-                        <Link to="/players">Players</Link>
-                        <Link to="/managers">Managers</Link>
-                        <Link to="/stadiums">Stadiums</Link>
+                        <nav className="breadcrumb" aria-label="breadcrumbs">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <span className="icon is-small">
+                                            <i className="fas fa-home" aria-hidden="true"></i>
+                                        </span>
+                                        <Link to="/">Home</Link>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span className="icon is-small">
+                                        <i className="far fa-futbol" aria-hidden="true"></i>
+                                        </span>
+                                        <Link to="/teams">Teams</Link>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span className="icon is-small">
+                                        <i className="fas fa-users" aria-hidden="true"></i>
+                                        </span>
+                                        <Link to="/players">Players</Link>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span className="icon is-small">
+                                        <i className="fas fa-male" aria-hidden="true"></i>
+                                        </span>
+                                        <Link to="/managers">Managers</Link>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span className="icon is-small">
+                                        <i className="fas fa-drum-steelpan" aria-hidden="true"></i>
+                                        </span>
+                                        <Link to="/stadiums">Stadiums</Link>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </nav>
                     </ul>
                 </div>
 
