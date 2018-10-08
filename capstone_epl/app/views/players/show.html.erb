@@ -16,18 +16,18 @@
 </p>
 
 <p>
-  <strong>Position:</strong>
+  <strong>Photo:</strong>
   <%= @player.photo %>
 </p>
 
 <p>
-  <strong>Position:</strong>
+  <strong>Country:</strong>
   <%= @player.country %>
 </p>
 
 <p>
-  <strong>Position:</strong>
-  <%= @player.team %>
+  <strong>Team:</strong>
+  <%= link_to @player.team.name, @player.team %>
 </p>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |

@@ -21,7 +21,7 @@
       <tr class="container">
         <td><%= player.id %></td> 
         <td><img src="<%= player.photo %>" class="player"/></td>
-        <td><img src="<%= player.team %>" class="team-logo"/></td>
+        <td><% if player.team %><img src="<%= player.team.logo %>" class="team-logo"/><% end %></td>
         <td><%= player.position %></td>
         <td><%= player.full_name %></td>
         <td><img src="<%= player.country %>" class="flag"/></td>

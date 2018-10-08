@@ -39,8 +39,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :team %>
-    <%= form.text_field :team %>
+    <%= form.label :team_id %>
+    <%= form.select :team_id, Team.all.map { |t| [t.name, t.id] } %>
   </div>
 
   <div class="actions">
