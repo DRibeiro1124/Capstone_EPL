@@ -2,8 +2,6 @@
   "name": "capstone_epl",
   "private": true,
   "dependencies": {
-    "bulma": "^0.7.1",
-    "react-modal-wrapper": "^0.5.4"
   },
   "scripts": {
     "postinstall": "npm run build && npm run deploy",
