@@ -114,7 +114,7 @@ class Stadiums extends Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:3000/teams.json`)
+        fetch(`/teams.json`)
             .then(resp => resp.json())
             .then(stadiums => {
                 console.log(stadiums)
