@@ -1,1 +1,1 @@
-web: bundle rails s -p ${PORT:-3000}
+web: bin/rails -p $PORT -b 0.0.0.0
