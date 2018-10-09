@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import NavBar from './NavBar';
-import logo from '../images/EPL-Logo4.png';
-
+import logo from '../images/EPL-Logo2.svg'
 const StadiumWrapper = styled.div`
 
 .stadiums {

@@ -9,12 +9,12 @@ ul {
     justify-content: space-around;
     flex-wrap: wrap;
     width: auto;
-    background: #32063A;
+    background: #6CEEFC;
     color: white;
     list-style-type: none;
-    margin: 15px;
+    margin-top: 1em;
     border-radius: 15px 75px;
-    
+    align-content: center;
 }
 
 a {
@@ -55,7 +55,7 @@ a:active {
 }
 
 .breadcrumb {
-    background-color: #32063A;
+    background-color: #6CEEFC;
 }
 
 
@@ -65,7 +65,7 @@ class NavBar extends Component {
     render() {
         return (
             <NavBarWrapper>
-                <div>
+                <div className="main-container">
                     <ul>
                         <nav className="breadcrumb" aria-label="breadcrumbs">
                             <ul>
