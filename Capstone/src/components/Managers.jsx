@@ -54,8 +54,8 @@ li {
     perspective: 1000px;
     border: 2px solid #32063A; 
     border-radius: 10px;
-    // overflow: scroll;
-    overflow: auto;
+    overflow: scroll;
+    // overflow: auto;
 }
 
 
@@ -71,6 +71,9 @@ li {
     
 }
 
+.back {
+    padding: 20px;
+}
 
 /* flip speed goes here */
 .flipper {

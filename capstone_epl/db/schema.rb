@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_211923) do
+ActiveRecord::Schema.define(version: 2018_10_09_125715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,10 @@ ActiveRecord::Schema.define(version: 2018_10_08_211923) do
     t.string "secondary_color"
     t.string "stadium_name"
     t.text "stadium_info"
+    t.bigint "managers_id"
+    t.index ["managers_id"], name: "index_teams_on_managers_id"
   end
 
   add_foreign_key "players", "teams"
+  add_foreign_key "teams", "managers", column: "managers_id"
 end

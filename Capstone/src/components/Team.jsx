@@ -64,8 +64,8 @@ td {
     text-align: center;
 }
 
-tr  {
-    
+.btn btn-primary btn-lg {
+   
 }
 
 
@@ -135,8 +135,28 @@ class Team extends Component {
                         <div>
                             <h5>Manager: <p>{team.name}</p></h5>
                         </div>
-                        <div>
+                        <section>
                             <h5>Stadium: <p>{team.stadium_name}</p></h5>
+                            <button style={{ color: team.primary_color ,background:team.secondary_color }}type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Click here for {team.stadium_name} view</button>
+                         </section>
+                        <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div style={{background: team.primary_color}} class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 style={{ color: team.secondary_color }} class="modal-title" id="exampleModalLabel">{team.name}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src={team.stadium} alt="stadium" className="stadium-image" />
+                                        <h4 style={{ color: team.secondary_color }}>{team.stadium_name}</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

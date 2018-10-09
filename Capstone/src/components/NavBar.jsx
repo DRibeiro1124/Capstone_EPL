@@ -55,6 +55,11 @@ a:active {
     color: blue;
 }
 
+.breadcrumb {
+    background-color: #32063A;
+}
+
+
 `
 
 class NavBar extends Component {

@@ -51,7 +51,6 @@ tr:hover td {
 
 th {
     text-align: center;
-    // background-color: #6CEEFC;
 }
 
 
@@ -107,12 +106,13 @@ h1 {
 }
 
 a {
-    color: yellow;
+    color: dodgerblue;
 }
 
 a:hover {
     color: black;
 }
+
 
 
 `
@@ -168,7 +168,7 @@ class HomePage extends Component {
                                 return (
                                     <tr key={i}>
                                         <td>{teams.position}</td>
-                                        <td><Link to={`/teams/${teams.id}`}>{teams.team_name}</Link></td>
+                                        <td><Link to={`/teams/${teams.team_name}`}>{teams.team_name}</Link></td>
                                         <td>{teams.overall_gp}</td>
                                         <td>{teams.overall_w}</td>
                                         <td>{teams.overall_d}</td>

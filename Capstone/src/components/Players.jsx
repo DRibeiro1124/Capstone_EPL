@@ -41,6 +41,9 @@ const PlayerWrapper = styled.div`
     border: 1px solid black;
 }
 
+.search-bar {
+    padding: 2em;
+}
 
 `
 
@@ -60,7 +63,7 @@ class Players extends Component {
         fetch(`http://localhost:3000/players.json`)
             .then(resp => resp.json())
             .then(players => {
-                // console.log(players, "working?")
+                console.log(players, "working?")
                 this.setState({
                     players: players
                 })
@@ -68,14 +71,13 @@ class Players extends Component {
     }
 
     handleSearchTerm = (e) => {
-      fetch(`http://localhost:3000/players.json?q=${e.target.value}`)
-        .then(resp => resp.json())
-        .then(players => {
-            console.log(players)
-            this.setState({
-                players: players
-            })
-        });
+        fetch(`http://localhost:3000/players.json?q=${e.target.value}`)
+            .then(resp => resp.json())
+            .then(players => {
+                this.setState({
+                    players: players
+                })
+            });
     }
 
     render() {
@@ -83,9 +85,31 @@ class Players extends Component {
             <PlayerWrapper>
 
                 <NavBar />
-                <input type="text" placeholder="Search Player" onKeyUp={this.handleSearchTerm} name="searchTerm" />
+
+                <section>
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#!" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#!">1</a></li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#!">2 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#!">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </section>
+
+                <section className='search-bar'>
+                    <input type="text" placeholder="Search Player" onKeyUp={this.handleSearchTerm} name="searchTerm" />
+                </section>
                 <section className='main-container'>
-                
+
                     <div>
                         {this.state.players.sort(function (a, b) {
                             if (a.full_name < b.full_name) return -1;
@@ -98,7 +122,7 @@ class Players extends Component {
                                     <p className="players">{this.state.players[i].full_name}</p>
                                     <p className="position">{this.state.players[i].position}</p>
                                     <p className="number">{this.state.players[i].jersey_number}</p>
-                                    <p><img src={this.state.players[i].team} className="team-logo" alt='logo'></img></p>
+                                    <p><img src={this.state.players[i].logo} className="team-logo" alt='logo'></img></p>
                                     {/* <p><img src={this.state.players[i].country} className="flag" alt='flag'></img></p> */}
                                 </div>
                             )
