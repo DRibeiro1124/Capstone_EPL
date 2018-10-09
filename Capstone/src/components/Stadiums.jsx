@@ -172,16 +172,6 @@ export default Stadiums;
 
 
 
-// <div className='teams-info' key={i} style={{backgroundColor:stadium.primary_color}}> 
-//     <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
-//     <li style={{color:stadium.secondary_color}}>{stadium.stadium_name}</li>
-//     <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
-//     <li style={{color:stadium.secondary_color}}>{stadium.name}</li>
-// </div>
-
-//     
-
-
 
                             
 

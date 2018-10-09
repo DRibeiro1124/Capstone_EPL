@@ -78,7 +78,10 @@ class Players extends Component {
                     players: players
                 })
             });
-    }
+    };
+    
+
+
 
     render() {
         return (
@@ -122,7 +125,7 @@ class Players extends Component {
                                     <p className="players">{this.state.players[i].full_name}</p>
                                     <p className="position">{this.state.players[i].position}</p>
                                     <p className="number">{this.state.players[i].jersey_number}</p>
-                                    <p><img src={this.state.players[i].logo} className="team-logo" alt='logo'></img></p>
+                                    <p><img src={this.state.players[i].team.logo} className="team-logo" alt='logo'></img></p>
                                     {/* <p><img src={this.state.players[i].country} className="flag" alt='flag'></img></p> */}
                                 </div>
                             )

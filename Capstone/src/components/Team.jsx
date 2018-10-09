@@ -7,7 +7,7 @@ const TeamWrapper = styled.div`
 
 .team-header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     margin: 10px;
     align-items: center; 
@@ -50,6 +50,7 @@ const TeamWrapper = styled.div`
 
 .sponsors img {
     height: 3em;
+    padding: 5px;
 }
 
 .photo {
@@ -154,6 +155,7 @@ class Team extends Component {
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <h6>For more information about {team.stadium_name}, please visit our stadium page</h6>
                                     </div>
                                 </div>
                             </div>

@@ -31,7 +31,6 @@ li {
 }
 
 li:hover {
-    // background: yellow;
     color: yellow;
 }
 

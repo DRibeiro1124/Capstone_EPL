@@ -18,11 +18,11 @@ const HomePageWrapper = styled.div`
 }
 
 .league-table tbody tr:not(.is-selected):nth-child(odd) {
-    background-color: #D62E55;
+    background-color: #DCDCDC;
 }
 
 .league-table tbody tr:not(.is-selected):nth-child(even) {
-    background-color: #32063A;
+    background-color: #C0C0C0;
 }
 
 .main-container {
@@ -40,7 +40,7 @@ const HomePageWrapper = styled.div`
 
 
 td {
-    color: #FFF
+    color: #000
     border-bottom: 1px solid #FFF;
     text-align: center;
 }
@@ -90,13 +90,10 @@ h1 {
 }
 
 .glossary {
-    border: 2px solid #32063A;
     margin-top: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-image: url(${logo1});
-    color: #FFF;
 }
 
 .glossary h6 {
@@ -106,14 +103,16 @@ h1 {
 }
 
 a {
-    color: dodgerblue;
+    color: blue;
 }
 
 a:hover {
     color: black;
 }
 
-
+.card {
+    background-color: #DCDCDC;
+}
 
 `
 
@@ -148,7 +147,7 @@ class HomePage extends Component {
                         <img src={logo} className="logo" alt="logo" />
                         <h1>2018/19 Standings</h1>
                     </header>
-                    <table className="league-table table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <table className="league-table table is-bordered is-striped is-narrow is-fullwidth">
                         <thead className='table-header'>
                             <tr>
                                 <th><abbr title="Position">Pos</abbr></th>
@@ -183,23 +182,28 @@ class HomePage extends Component {
                         </tbody>
                     </table>
 
-                    <footer className="footer-container">
-                        <div className="footer-info">
+                    <div class="card">
+                        <div class="card-header">
+                            GLOSSARY
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">English Premier League</h5>
                             <h6>Positions 1, 2, 3, 4: Qualification for the <a href="https://en.wikipedia.org/wiki/UEFA_Champions_League">UEFA Champions League</a></h6>
                             <h6>Position 5: Qualification for the <a href="https://en.wikipedia.org/wiki/UEFA_Europa_League">UEFA Europa League</a></h6>
                             <h6>Positions 18, 19, 20: Relegation to the <a href="https://en.wikipedia.org/wiki/EFL_Championship">Football League Championship</a></h6>
                         </div>
-                    </footer>
-                    <div className="glossary">
-                        <h5>GLOSSARY</h5>
-                        <h6>GP: Games Played</h6>
-                        <h6>W: Wins</h6>
-                        <h6>D: Draws</h6>
-                        <h6>L: Losses</h6>
-                        <h6>GF: Goals For</h6>
-                        <h6>GA: Goals Against</h6>
-                        <h6>GD: Goal Difference</h6>
-                        <h6>P: Points</h6>
+                        <div className="glossary">
+                            <h6>GP: Games Played</h6>
+                            <h6>W: Wins</h6>
+                            <h6>D: Draws</h6>
+                            <h6>L: Losses</h6>
+                            <h6>GF: Goals For</h6>
+                            <h6>GA: Goals Against</h6>
+                            <h6>GD: Goal Difference</h6>
+                            <h6>P: Points</h6>
+                        </div>
+
+                        <a href="#" class="btn btn-primary">Back to the top</a>
                     </div>
                 </div>
             </HomePageWrapper>
@@ -208,7 +212,6 @@ class HomePage extends Component {
 }
 
 export default HomePage;
-
 
 
 
