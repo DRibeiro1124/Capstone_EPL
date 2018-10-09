@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Teams from './Teams';
 
+
 const TeamWrapper = styled.div`
 img {
     /*height: 8em;*/
@@ -58,21 +59,14 @@ td, th {
     height: 3em;
 }
 
-
-
-
-
 `
 class Team extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            club: {
-                squad: [],
-                name: props.match.params.id
-            },
-            teams: {},
+            team: null,
+            players:[],
             loading: true
         }
     };
@@ -89,24 +83,24 @@ class Team extends Component {
 
     updateTeam() {
         const id = this.props.match.params.id
-        fetch(`http://localhost:3000/teams.json`)
+        fetch(`http://localhost:3000/teams/${id}.json`)
             .then(resp => resp.json())
-            .then(teams => {
+            .then(team => {
                 this.setState({
                     loading: false,
-                    club:{
-                        name:id,
-                        squad: [],
-                    },
-                    teams: teams.reduce((acc, team) => {
-                        acc[team.name.replace(/\W/g, '')] = team; return acc
-                    }, {})
+                    team
                 })
             });
 
-            
+        fetch(`http://localhost:3000/teams/${id}/players.json`)
+            .then(resp => resp.json())
+            .then(players => {
+                console.log(players)
+                this.setState({
+                    players: players
+                })
+            })
     }
-
 
 
     render() {
@@ -114,9 +108,9 @@ class Team extends Component {
             return <h1>Loading...</h1>
         }
 
-        const slug = this.state.club.name.replace(/\W/g, '');
-        // console.log({ slug, name: this.state.club.name, teams: this.state.teams })
-        const team = this.state.teams[this.state.club.name]
+        
+        const team = this.state.team
+        const slug = team.name.replace(/\W/g, '');
 
         return (
             <TeamWrapper>
@@ -124,19 +118,18 @@ class Team extends Component {
                 <div className={`team ${slug}`}>
                     <header className="team-header">
                         <img src={`../images/${slug}Logo.svg`} alt='logo' />
-                        <h2>{this.state.club.name}</h2>
+                        <h2>{team.name}</h2>
                     </header>
                     <div className='team-info'>
                         <div>
-                            <h5>Manager: <p>{this.state.club.coach_name}</p></h5>
+                            <h5>Manager: <p>{team.name}</p></h5>
                         </div>
                         <div>
-                            <h5>Stadium: <p>{this.state.club.venue_name}</p></h5>
-                            <h6>Capacity: {this.state.club.venue_capacity}</h6>
+                            <h5>Stadium: <p>{team.stadium_name}</p></h5>
                         </div>
                     </div>
 
-                    {/* <div className="kits">
+                    <div className="kits">
                         <div>
                             <img src={team.home_kit} alt='home-kit' /><h6>Home Kit</h6>
                         </div>
@@ -155,31 +148,29 @@ class Team extends Component {
                         <div>
                             <img src={team.lead_partner_logo} alt='kit-provider' /><h6>Kit Provider</h6>
                         </div>
-                    </div> */}
+                    </div>
 
 
-                    {/* <table className="main-table">
+                    <table className="main-table">
                         <thead>
                             <tr>
-                                <th>Number</th>
-                                <th>Name</th>
-                                <th>Age</th>
-                                <th>Position</th>
+                                <th style={{ color: team.secondary_color }}>Number</th>
+                                <th style={{ color: team.secondary_color }}>Name</th>
+                                <th style={{ color: team.secondary_color }}>Position</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.club.squad.map((players, i) => {
+                            {this.state.players.map((player, i) => {
                                 return (
                                     <tr key={i} className="player-info">
-                                        <td>{this.state.club.squad[i].number}</td>
-                                        <td>{this.state.club.squad[i].name}</td>
-                                        <td>{this.state.club.squad[i].age}</td>
-                                        <td>{this.state.club.squad[i].position}</td>
+                                        <td>{player.jersey_number}</td>
+                                        <td>{player.full_name}</td>
+                                        <td>{player.position}</td>
                                     </tr>
                                 )
                             })}
                         </tbody>
-                    </table> */}
+                    </table>
                 </div>
             </TeamWrapper>
         )

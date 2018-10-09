@@ -72,7 +72,7 @@ class Teams extends Component {
 					{this.state.teamButtons
 						.map((team) => {
 							return <div className="teams" key={team.id}>
-								<Link to={`/teams/${team.name.replace(/\W/g, '')}`}>
+								<Link to={`/teams/${team.id}`}>
 									<img src={team.logo} alt="team-logo" />
 									<p>{team.name}</p></Link>
 							</div>

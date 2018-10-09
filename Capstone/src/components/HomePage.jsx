@@ -64,7 +64,7 @@ h1 {
     align-items: center;
     font-size: 18px;
     // background-color: #D62E55;
-    background: #75fa93;
+    background: #75FA93;
     border: 1px solid black;
     margin-top: 1em;
     border-radius: 15px 75px;

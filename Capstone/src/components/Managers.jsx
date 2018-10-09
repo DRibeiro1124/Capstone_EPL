@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import NavBar from './NavBar';
 import photo from '../images/EPL-Background.jpg'
+import { pipeline } from 'stream';
 
 
 
@@ -138,22 +139,15 @@ class Managers extends Component {
                         }).map((managers, i) => {
                            
                             return (
-                                <section className='main-container' key={i}>
-                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                                        <div class="flipper">
-                                            <div class="front">
-                                                {/* front content */}
-                                                <img src={this.state.managers[i].photo} className="photo" alt="manager" />
-                                                <li className='manager'>{this.state.managers[i].full_name}</li>
-                                                <img src={this.state.managers[i].club} className="logo" alt="logo" />
-                                            </div>
-                                            <div class="back">
-                                                {/* back content */}
-                                                <p className='bio'>{this.state.managers[i].bio}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+                                <div className="modal">
+                                <div className="modal-background"></div>
+                                <div className="modal-content">
+                                  <p className="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="" />
+                                  </p>
+                                </div>
+                                <button className="modal-close is-large" aria-label="close"></button>
+                              </div>
                             )
                         })
                         }
@@ -168,3 +162,20 @@ export default Managers;
 
 
 // const backgroundLogo = {this.state.managers[i].club}
+
+{/* <section className='main-container' key={i}>
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+        <div class="front">
+            {/* front content */}
+        //     <img src={this.state.managers[i].photo} className="photo" alt="manager" />
+        //     <li className='manager'>{this.state.managers[i].full_name}</li>
+        //     <img src={this.state.managers[i].club} className="logo" alt="logo" />
+        // </div>
+        // <div class="back">
+            {/* back content */}
+//             <p className='bio'>{this.state.managers[i].bio}</p>
+//         </div>
+//     </div>
+// </div>
+// </section> */}
