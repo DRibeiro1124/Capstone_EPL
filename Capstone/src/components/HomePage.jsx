@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import logo from '../images/EPL-Logo4.png';
 import logo1 from '../images/EPL-Background.jpg';
 import NavBar from './NavBar';
+import { Link } from 'react-router-dom'
 
 const base_URL = "http://api.football-api.com/2.0/"
 const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
@@ -103,7 +104,14 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
+}
+
+a {
+    color: yellow;
+}
+
+a:hover {
+    color: black;
 }
 
 
@@ -160,7 +168,7 @@ class HomePage extends Component {
                                 return (
                                     <tr key={i}>
                                         <td>{teams.position}</td>
-                                        <td>{teams.team_name}</td>
+                                        <td><Link to={`/teams/${teams.id}`}>{teams.team_name}</Link></td>
                                         <td>{teams.overall_gp}</td>
                                         <td>{teams.overall_w}</td>
                                         <td>{teams.overall_d}</td>
@@ -177,9 +185,9 @@ class HomePage extends Component {
 
                     <footer className="footer-container">
                         <div className="footer-info">
-                            <h6>Positions 1, 2, 3, 4: Champions League</h6>
-                            <h6>Position 5: Europa League</h6>
-                            <h6>Positions 18, 19, 20: Relegation to the <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship">Football League Championship</a></h6>
+                            <h6>Positions 1, 2, 3, 4: Qualification for the <a href="https://en.wikipedia.org/wiki/UEFA_Champions_League">UEFA Champions League</a></h6>
+                            <h6>Position 5: Qualification for the <a href="https://en.wikipedia.org/wiki/UEFA_Europa_League">UEFA Europa League</a></h6>
+                            <h6>Positions 18, 19, 20: Relegation to the <a href="https://en.wikipedia.org/wiki/EFL_Championship">Football League Championship</a></h6>
                         </div>
                     </footer>
                     <div className="glossary">

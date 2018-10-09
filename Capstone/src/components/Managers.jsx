@@ -128,7 +128,7 @@ class Managers extends Component {
     render() {
         return (
             <ManagerWrapper>
-                
+
                 <NavBar />
                 <div>
                     <section className="main-container">
@@ -137,17 +137,24 @@ class Managers extends Component {
                             if (a.full_name > b.full_name) return 1;
                             return 0
                         }).map((managers, i) => {
-                           
+
                             return (
-                                <div className="modal">
-                                <div className="modal-background"></div>
-                                <div className="modal-content">
-                                  <p className="image is-4by3">
-                                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="" />
-                                  </p>
-                                </div>
-                                <button className="modal-close is-large" aria-label="close"></button>
-                              </div>
+                                <section className='main-container' key={i}>
+                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="flipper">
+                                            <div class="front">
+                                                {/* front content */}
+                                                <img src={this.state.managers[i].photo} className="photo" alt="manager" />
+                                                <li className='manager'>{this.state.managers[i].full_name}</li>
+                                                <img src={this.state.managers[i].club} className="logo" alt="logo" />
+                                            </div>
+                                            <div class="back">
+                                                {/* back content */}
+                                                <p className='bio'>{this.state.managers[i].bio}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             )
                         })
                         }
@@ -163,19 +170,3 @@ export default Managers;
 
 // const backgroundLogo = {this.state.managers[i].club}
 
-{/* <section className='main-container' key={i}>
-<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-    <div class="flipper">
-        <div class="front">
-            {/* front content */}
-        //     <img src={this.state.managers[i].photo} className="photo" alt="manager" />
-        //     <li className='manager'>{this.state.managers[i].full_name}</li>
-        //     <img src={this.state.managers[i].club} className="logo" alt="logo" />
-        // </div>
-        // <div class="back">
-            {/* back content */}
-//             <p className='bio'>{this.state.managers[i].bio}</p>
-//         </div>
-//     </div>
-// </div>
-// </section> */}

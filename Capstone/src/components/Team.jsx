@@ -4,9 +4,6 @@ import Teams from './Teams';
 
 
 const TeamWrapper = styled.div`
-img {
-    /*height: 8em;*/
-}
 
 .team-header {
     display: flex;
@@ -21,12 +18,8 @@ img {
     height: 15em;
 }
 
-td, th {
-    border-bottom: 1px solid lightgrey;
-}
 
-
-.main-table {
+.table {
     padding-top: 1em;
     border: 1px solid white;
     width: 100%;
@@ -59,6 +52,23 @@ td, th {
     height: 3em;
 }
 
+.photo {
+    height: 3em;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+tr  {
+    
+}
+
+
 `
 class Team extends Component {
 
@@ -66,7 +76,7 @@ class Team extends Component {
         super(props);
         this.state = {
             team: null,
-            players:[],
+            players: [],
             loading: true
         }
     };
@@ -86,6 +96,7 @@ class Team extends Component {
         fetch(`http://localhost:3000/teams/${id}.json`)
             .then(resp => resp.json())
             .then(team => {
+                console.log(team, 'working now?')
                 this.setState({
                     loading: false,
                     team
@@ -95,7 +106,7 @@ class Team extends Component {
         fetch(`http://localhost:3000/teams/${id}/players.json`)
             .then(resp => resp.json())
             .then(players => {
-                console.log(players)
+                // console.log(players)
                 this.setState({
                     players: players
                 })
@@ -108,7 +119,7 @@ class Team extends Component {
             return <h1>Loading...</h1>
         }
 
-        
+
         const team = this.state.team
         const slug = team.name.replace(/\W/g, '');
 
@@ -151,21 +162,23 @@ class Team extends Component {
                     </div>
 
 
-                    <table className="main-table">
+                    <table className="table is-bordered is-striped is-hoverable is-fullwidth">
                         <thead>
-                            <tr>
-                                <th style={{ color: team.secondary_color }}>Number</th>
-                                <th style={{ color: team.secondary_color }}>Name</th>
-                                <th style={{ color: team.secondary_color }}>Position</th>
+                            <tr style={{ background: team.primary_color }}>
+                                <th style={{ color: team.secondary_color }}><abbr title="Jersey Number">Num</abbr></th>
+                                <th style={{ color: team.secondary_color }}><abbr title="Player Photo">Photo</abbr></th>
+                                <th style={{ color: team.secondary_color }}><abbr title="Full Name">Name</abbr></th>
+                                <th style={{ color: team.secondary_color }}><abbr title="Position">Pos</abbr></th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.players.map((player, i) => {
                                 return (
-                                    <tr key={i} className="player-info">
-                                        <td>{player.jersey_number}</td>
-                                        <td>{player.full_name}</td>
-                                        <td>{player.position}</td>
+                                    <tr key={i} className="player-info" style={{ background: team.primary_color }}>
+                                        <td style={{ color: team.secondary_color }}>{player.jersey_number}</td>
+                                        <td><img src={player.photo} className='photo' /></td>
+                                        <td style={{ color: team.secondary_color }}>{player.full_name}</td>
+                                        <td style={{ color: team.secondary_color }}>{player.position}</td>
                                     </tr>
                                 )
                             })}
