@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Teams from './Teams';
+import { Link } from 'react-router-dom'
 
 
 const TeamWrapper = styled.div`
@@ -93,7 +94,7 @@ class Team extends Component {
         fetch(`/teams/${id}.json`)
             .then(resp => resp.json())
             .then(team => {
-                console.log(team, 'working now?')
+                // console.log(team, 'working now?')
                 this.setState({
                     loading: false,
                     team
@@ -108,12 +109,16 @@ class Team extends Component {
                     players: players
                 })
             })
-    }
+		}
+		
+		redirectToStadium = () => {
+			window.location.replace("/stadiums")
+		}
 
 
     render() {
         if (this.state.loading) {
-            return <h1>Loading...</h1>
+            return <h1>Loading ... </h1>
         }
 
 
@@ -151,7 +156,7 @@ class Team extends Component {
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <h6>For more information about {team.stadium_name}, please visit our stadium page</h6>
+                                        <h6>For more information about {team.stadium_name}, please visit our <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.redirectToStadium}>Stadiums Page</button></h6>
                                     </div>
                                 </div>
                             </div>

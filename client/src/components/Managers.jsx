@@ -31,14 +31,14 @@ li {
     font-size: 24px;
     font-family: "Premier-League";
     font-weight: 900;
-    color: white;
+    color: #000;
 }
 
 .front {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-image: url(${photo});
+    // background-image: url(${photo});
     background-repeat: no-repeat;
 }
 
@@ -48,7 +48,6 @@ li {
     border: 2px solid #32063A; 
     border-radius: 10px;
     overflow: scroll;
-    // overflow: auto;
 }
 
 
