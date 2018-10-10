@@ -77,7 +77,7 @@ class Teams extends Component {
 	componentDidMount() {
 
 		// see if I can fetch from my back-end
-		fetch(`/teams.json`)
+		fetch(`/admin/teams.json`)
 			.then(resp => resp.json())
 			.then(teams => {
 				// console.log("hello", teams)

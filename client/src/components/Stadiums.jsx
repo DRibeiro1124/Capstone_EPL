@@ -140,7 +140,7 @@ class Stadiums extends Component {
     };
 
     componentDidMount() {
-        fetch(`/teams.json`)
+        fetch(`/admin/teams.json`)
             .then(resp => resp.json())
             .then(stadiums => {
                 console.log(stadiums)

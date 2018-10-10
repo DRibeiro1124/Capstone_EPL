@@ -75,7 +75,7 @@ class Players extends Component {
 
 
     componentDidMount() {
-        fetch(`/players.json`)
+        fetch(`/admin/players.json`)
             .then(resp => resp.json())
             .then(players => {
                 console.log(players, "working?")
@@ -86,7 +86,7 @@ class Players extends Component {
     }
 
     handleSearchTerm = (e) => {
-        fetch(`/players.json?q=${e.target.value}`)
+        fetch(`/admin/players.json?q=${e.target.value}`)
             .then(resp => resp.json())
             .then(players => {
                 this.setState({

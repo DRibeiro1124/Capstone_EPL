@@ -5,7 +5,7 @@ import logo1 from '../images/EPL-Background.jpg';
 import NavBar from './NavBar';
 import { Link } from 'react-router-dom'
 
-const base_URL = "http://api.football-api.com/2.0/"
+const base_URL = "https://api.football-api.com/2.0/"
 const api_key = "Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76"
 
 

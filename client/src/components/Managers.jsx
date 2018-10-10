@@ -134,7 +134,7 @@ class Managers extends Component {
     };
 
     componentDidMount() {
-        fetch(`/managers.json`)
+        fetch(`/admin/managers.json`)
             .then(resp => resp.json())
             .then(managers => {
                 console.log("is this working", managers)

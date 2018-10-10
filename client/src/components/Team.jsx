@@ -91,7 +91,7 @@ class Team extends Component {
 
     updateTeam() {
         const id = this.props.match.params.id
-        fetch(`/teams/${id}.json`)
+        fetch(`/admin/teams/${id}.json`)
             .then(resp => resp.json())
             .then(team => {
                 // console.log(team, 'working now?')
@@ -101,7 +101,7 @@ class Team extends Component {
                 })
             });
 
-        fetch(`/teams/${id}/players.json`)
+        fetch(`/admin/teams/${id}/players.json`)
             .then(resp => resp.json())
             .then(players => {
                 // console.log(players)
