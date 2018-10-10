@@ -18,13 +18,6 @@ const TeamWrapper = styled.div`
     height: 15em;
 }
 
-
-.table {
-    padding-top: 1em;
-    border: 1px solid white;
-    width: 100%;
-}
-
 .kits {
     padding-top: 2em;
     display: flex;
@@ -54,20 +47,23 @@ const TeamWrapper = styled.div`
 }
 
 .photo {
-    height: 3em;
+    height: 10rem;
 }
 
 th {
     text-align: center;
 }
 
-td {
-    text-align: center;
+tr {
+    
 }
 
-.btn btn-primary btn-lg {
-   
+td {
+    text-align: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif; 
 }
+
 
 
 `
@@ -184,23 +180,23 @@ class Team extends Component {
                     </div>
 
 
-                    <table className="table is-bordered is-striped is-hoverable is-fullwidth">
-                        <thead>
+                    <table class="table">
+                    <thead class="thead-dark">
                             <tr style={{ background: team.primary_color }}>
-                                <th style={{ color: team.secondary_color }}><abbr title="Jersey Number">Num</abbr></th>
-                                <th style={{ color: team.secondary_color }}><abbr title="Player Photo">Photo</abbr></th>
-                                <th style={{ color: team.secondary_color }}><abbr title="Full Name">Name</abbr></th>
-                                <th style={{ color: team.secondary_color }}><abbr title="Position">Pos</abbr></th>
+                                <th style={{ color: team.secondary_color }}>Jersey Number</th>
+                                <th style={{ color: team.secondary_color }}>Photo</th>
+                                <th style={{ color: team.secondary_color }}>Name</th>
+                                <th style={{ color: team.secondary_color }}>Position</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.players.map((player, i) => {
                                 return (
-                                    <tr key={i} className="player-info" style={{ background: team.primary_color }}>
-                                        <td style={{ color: team.secondary_color }}>{player.jersey_number}</td>
-                                        <td><img src={player.photo} className='photo' /></td>
-                                        <td style={{ color: team.secondary_color }}>{player.full_name}</td>
-                                        <td style={{ color: team.secondary_color }}>{player.position}</td>
+                                    <tr key={i} style={{ background: team.primary_color }}>
+                                        <td class="align-middle" style={{ color: team.secondary_color }}>{player.jersey_number}</td>
+                                        <td class="align-middle"><img src={player.photo} className='photo' /></td>
+                                        <td class="align-middle" style={{ color: team.secondary_color }}>{player.full_name}</td>
+                                        <td class="align-middle" style={{ color: team.secondary_color }}>{player.position}</td>
                                     </tr>
                                 )
                             })}

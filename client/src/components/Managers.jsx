@@ -3,30 +3,23 @@ import styled from 'styled-components'
 import NavBar from './NavBar';
 import photo from '../images/EPL-Background.jpg'
 import { pipeline } from 'stream';
-
+import logo from '../images/EPL-Logo4.png'
 
 
 
 const ManagerWrapper = styled.div`
 
-.main-container {
-    // border: 2px solid black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
 .logo {
     height: 4em;
+    margin: 0.5em;
 }
 
 .photo {
-    height: 11em;
+    height: 15em;
 }
 
 p {
     font-size: 15px;
-    // font-family: 'Nunito', sans-serif;
     font-family: "Premier-League";
 }
 
@@ -68,7 +61,6 @@ li {
 	width: 250px;
     height: 400px;
     margin-bottom: 10px;
-    
 }
 
 .back {
@@ -102,6 +94,32 @@ li {
     
 }
 
+.main-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 25px 0 25px;
+    padding: 5px;
+}
+
+.managers-header {
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background: #75FA93;
+    border: 1px solid black;
+	margin-top: 1em;
+    border-radius: 15px 75px;
+    box-shadow: 10px 8px;
+    margin-bottom: 50px;
+}
+
+.flip-main {
+    padding-top: 2em;
+
+}
+
 
 
 `
@@ -133,8 +151,12 @@ class Managers extends Component {
             <ManagerWrapper>
 
                 <NavBar />
-                <div>
-                    <section className="main-container">
+                <div className='main-container'>
+                    <header className="managers-header">
+                        <img src={logo} className="logo" alt="logo" />
+                        <h1>2018/19 EPL Managers</h1>
+                    </header>
+                    <section>
                         {this.state.managers.sort(function (a, b) {
                             if (a.full_name < b.full_name) return -1;
                             if (a.full_name > b.full_name) return 1;
@@ -142,7 +164,7 @@ class Managers extends Component {
                         }).map((managers, i) => {
 
                             return (
-                                <section className='main-container' key={i}>
+                                <section className="flip-main" key={i}>
                                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                                         <div class="flipper">
                                             <div class="front">
@@ -171,5 +193,4 @@ class Managers extends Component {
 export default Managers;
 
 
-// const backgroundLogo = {this.state.managers[i].club}
 

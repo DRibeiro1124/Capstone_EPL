@@ -4,18 +4,6 @@ import { Link } from 'react-router-dom'
 
 
 const NavBarWrapper = styled.div`
-ul {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: auto;
-    background: #6CEEFC;
-    color: white;
-    list-style-type: none;
-    margin-top: 1em;
-    border-radius: 15px 75px;
-    align-content: center;
-}
 
 a {
     color: white;
@@ -55,7 +43,26 @@ a:active {
 }
 
 .breadcrumb {
-    background-color: #6CEEFC;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    // width: auto;
+    background: #D62E55;
+    color:  #32063A;
+    list-style-type: none;
+    margin-top: 1em;
+    border-radius: 15px 75px;
+    box-shadow: 10px 6px;
+    align-content: center;
+    border: 1px solid #32063A;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 25px 0 25px;
+    padding: 5px;
+
 }
 
 

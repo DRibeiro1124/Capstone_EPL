@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import NavBar from './NavBar';
 import logo from '../images/EPL-Logo2.svg'
+import logo1 from '../images/EPL-Logo4.png'
 const StadiumWrapper = styled.div`
 
 .stadiums {
@@ -45,6 +46,12 @@ li {
 .team-logo {
     height: 120px;
 }
+
+.logo {
+    height: 4em;
+    margin: 0.5em;
+}
+
 
 /* entire container, keeps perspective */
 .flip-container {
@@ -97,6 +104,26 @@ li {
     
 }
 
+.main-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 25px 0 25px;
+    padding: 5px;
+}
+
+.stadiums-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background: #75FA93;
+    border: 1px solid black;
+    margin-top: 1em;
+    border-radius: 15px 75px;
+    box-shadow: 10px 8px;
+    margin-bottom: 50px;
+}
 
 
 `
@@ -127,40 +154,42 @@ class Stadiums extends Component {
     render() {
         return (
             <StadiumWrapper>
-                <section>
-                    <NavBar />
-                </section>
-                <img src={logo} className="EPL-Logo" alt="logo" />
-
-
-                <div className='stadiums'>
-                    {this.state.stadiums.sort(function (a, b) {
-                        if (a.stadium_name < b.stadium_name) return -1;
-                        if (a.stadium_name > b.stadium_name) return 1;
-                        return 0
-                    }).map((stadium, i) => {
-                        return (
-                            <section className='main-container' key={i}>
-                                <div className="flip-container" onTouchStart="this.classList.toggle('hover');">
-                                    <div className="flipper">
-                                        <div className="front" style={{ backgroundColor: stadium.primary_color }}>
-                                            {/* front content */}
-                                            <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
-                                            <li style={{ color: stadium.secondary_color }}>{stadium.stadium_name}</li>
-                                            <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
-                                            <li style={{ color: stadium.secondary_color }}>{stadium.name}</li>
-                                        </div>
-                                        <div className="back" style={{ backgroundColor: stadium.primary_color }}>
-                                            {/* back content */}
-                                            {/* <p className='bio'>{this.state.managers[i].bio}</p> */}
-                                            <p style={{ color: stadium.secondary_color }}>{stadium.stadium_info}</p>
+                <NavBar />
+                <div className="main-container">
+                    <header className="stadiums-header">
+                        <img src={logo1} className="logo" alt="logo" />
+                        <h1>2018/19 Stadiums</h1>
+                    </header>
+        
+                    <div className='stadiums'>
+                        {this.state.stadiums.sort(function (a, b) {
+                            if (a.stadium_name < b.stadium_name) return -1;
+                            if (a.stadium_name > b.stadium_name) return 1;
+                            return 0
+                        }).map((stadium, i) => {
+                            return (
+                                <section key={i}>
+                                    <div className="flip-container" onTouchStart="this.classList.toggle('hover');">
+                                        <div className="flipper">
+                                            <div className="front" style={{ backgroundColor: stadium.primary_color }}>
+                                                {/* front content */}
+                                                <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
+                                                <li style={{ color: stadium.secondary_color }}>{stadium.stadium_name}</li>
+                                                <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
+                                                <li style={{ color: stadium.secondary_color }}>{stadium.name}</li>
+                                            </div>
+                                            <div className="back" style={{ backgroundColor: stadium.primary_color }}>
+                                                {/* back content */}
+                                                {/* <p className='bio'>{this.state.managers[i].bio}</p> */}
+                                                <p style={{ color: stadium.secondary_color }}>{stadium.stadium_info}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </section>
+                                </section>
 
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
                 </div>
             </StadiumWrapper>
         );
@@ -172,6 +201,5 @@ export default Stadiums;
 
 
 
-                            
 
-                        
+
