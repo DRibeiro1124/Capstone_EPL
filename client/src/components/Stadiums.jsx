@@ -125,6 +125,9 @@ li {
     margin-bottom: 50px;
 }
 
+.back {
+    padding: 20px; 
+}
 
 `
 

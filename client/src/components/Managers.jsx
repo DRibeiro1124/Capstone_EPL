@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import NavBar from './NavBar';
 import photo from '../images/EPL-Background.jpg'
-import { pipeline } from 'stream';
 import logo from '../images/EPL-Logo4.png'
 
 
@@ -116,8 +115,14 @@ li {
 
 .flip-main {
     padding-top: 2em;
-
 }
+
+.manager-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 
 
 
@@ -155,7 +160,7 @@ class Managers extends Component {
                         <img src={logo} className="logo" alt="logo" />
                         <h1>2018/19 EPL Managers</h1>
                     </header>
-                    <section>
+                    <section className="manager-container">
                         {this.state.managers.sort(function (a, b) {
                             if (a.full_name < b.full_name) return -1;
                             if (a.full_name > b.full_name) return 1;
@@ -166,14 +171,14 @@ class Managers extends Component {
                                 <section className="flip-main" key={i}>
                                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                                         <div class="flipper">
-                                            <div class="front">
-                                                {/* front content */}
+                                            <div class="front" style={{backgroundImage: this.state.managers[i].club}}>
+
                                                 <img src={this.state.managers[i].photo} className="photo" alt="manager" />
                                                 <li className='manager'>{this.state.managers[i].full_name}</li>
                                                 <img src={this.state.managers[i].club} className="logo" alt="logo" />
                                             </div>
                                             <div class="back">
-                                                {/* back content */}
+
                                                 <p className='bio'>{this.state.managers[i].bio}</p>
                                             </div>
                                         </div>

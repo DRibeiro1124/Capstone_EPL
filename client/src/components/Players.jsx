@@ -108,25 +108,6 @@ class Players extends Component {
                         <img src={logo} className="logo" alt="logo" />
                         <h1>2018/19 EPL Players</h1>
                     </header>
-                    {/* <section>
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#!" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#!">1</a></li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#!">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#!">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                    </section> */}
-
                     <section className='search-bar'>
                         <input type="text" placeholder="Search Player" onKeyUp={this.handleSearchTerm} name="searchTerm" />
                     </section>
@@ -144,8 +125,7 @@ class Players extends Component {
                                         <p className="players">{this.state.players[i].full_name}</p>
                                         <p className="position">{this.state.players[i].position}</p>
                                         <p className="number">{this.state.players[i].jersey_number}</p>
-                                        <p><img src={this.state.players[i].team.logo} className="team-logo" alt='logo'></img></p>
-                                        {/* <p><img src={this.state.players[i].country} className="flag" alt='flag'></img></p> */}
+                                        {/* <p><img src={this.state.players[i].team.logo} className="team-logo" alt='logo'></img></p> */}
                                     </div>
                                 )
                             })}
