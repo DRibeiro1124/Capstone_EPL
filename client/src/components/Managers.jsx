@@ -63,6 +63,8 @@ li {
 
 .back {
     padding: 20px;
+    background-color: #6CEEFC;
+    background-size: cover;
 }
 
 /* flip speed goes here */
@@ -80,16 +82,15 @@ li {
     left: 0;
 }
 
-/* front pane, placed above back */
 .front {
 	z-index: 2;
-	transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    overflow: scroll;
 }
 
-/* back, initially hidden pane */
+
 .back {
-    transform: rotateY(180deg);
-    
+    transform: rotateY(180deg);    
 }
 
 .main-container {
@@ -142,7 +143,6 @@ class Managers extends Component {
         fetch(`/admin/managers.json`)
             .then(resp => resp.json())
             .then(managers => {
-                console.log("is this working", managers)
                 this.setState({
                     managers: managers
                 })

@@ -94,7 +94,6 @@ class Team extends Component {
         fetch(`/admin/teams/${id}.json`)
             .then(resp => resp.json())
             .then(team => {
-                // console.log(team, 'working now?')
                 this.setState({
                     loading: false,
                     team
@@ -104,7 +103,6 @@ class Team extends Component {
         fetch(`/admin/teams/${id}/players.json`)
             .then(resp => resp.json())
             .then(players => {
-                // console.log(players)
                 this.setState({
                     players: players
                 })

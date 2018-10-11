@@ -69,7 +69,8 @@ class Players extends Component {
         super(props);
         this.state = {
             players: [],
-            teams: []
+            teams: [],
+            loading: false,
         }
     };
 
@@ -78,24 +79,28 @@ class Players extends Component {
         fetch(`/admin/players.json`)
             .then(resp => resp.json())
             .then(players => {
-                console.log(players, "working?")
                 this.setState({
                     players: players
                 })
-            });
+            }).catch(console.error);
     }
 
     handleSearchTerm = (e) => {
+        if (e.keyCode === 13) {
+        this.setState({ loading: true })
         fetch(`/admin/players.json?q=${e.target.value}`)
             .then(resp => resp.json())
             .then(players => {
                 this.setState({
-                    players: players
+                    players: players,
+                    loading: false
                 })
-            });
+            }).catch(console.error);
+        }
+        
     };
 
-
+   
 
 
     render() {
@@ -109,11 +114,12 @@ class Players extends Component {
                         <h1>2018/19 EPL Players</h1>
                     </header>
                     <section className='search-bar'>
-                        <input type="text" placeholder="Search Player" onKeyUp={this.handleSearchTerm} name="searchTerm" />
+                        <input type="text" placeholder="Search Player" onKeyDown={this.handleSearchTerm} name="searchTerm" />
                     </section>
                     <section className='main-container'>
 
                         <div>
+                            {this.state.loading && <div>loading...</div>}
                             {this.state.players.sort(function (a, b) {
                                 if (a.full_name < b.full_name) return -1;
                                 if (a.full_name > b.full_name) return 1;
@@ -125,7 +131,6 @@ class Players extends Component {
                                         <p className="players">{this.state.players[i].full_name}</p>
                                         <p className="position">{this.state.players[i].position}</p>
                                         <p className="number">{this.state.players[i].jersey_number}</p>
-                                        {/* <p><img src={this.state.players[i].team.logo} className="team-logo" alt='logo'></img></p> */}
                                     </div>
                                 )
                             })}

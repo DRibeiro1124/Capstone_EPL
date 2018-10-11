@@ -146,7 +146,6 @@ class Stadiums extends Component {
         fetch(`/admin/teams.json`)
             .then(resp => resp.json())
             .then(stadiums => {
-                console.log(stadiums)
                 this.setState({
                     stadiums: stadiums
                 })
@@ -175,15 +174,12 @@ class Stadiums extends Component {
                                     <div className="flip-container" onTouchStart="this.classList.toggle('hover');">
                                         <div className="flipper">
                                             <div className="front" style={{ backgroundColor: stadium.primary_color }}>
-                                                {/* front content */}
                                                 <li><img src={stadium.stadium} alt="stadium" className="stadium-image" /></li>
                                                 <li style={{ color: stadium.secondary_color }}>{stadium.stadium_name}</li>
                                                 <li> <img src={stadium.logo} alt="logo" className="team-logo" /></li>
                                                 <li style={{ color: stadium.secondary_color }}>{stadium.name}</li>
                                             </div>
                                             <div className="back" style={{ backgroundColor: stadium.primary_color }}>
-                                                {/* back content */}
-                                                {/* <p className='bio'>{this.state.managers[i].bio}</p> */}
                                                 <p style={{ color: stadium.secondary_color }}>{stadium.stadium_info}</p>
                                             </div>
                                         </div>
