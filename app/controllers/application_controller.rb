@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   def fallback_index_html
-    render :file => "public/index.html"
+    if Rails.env.production?
+      render file: 'public/index.html', layout: false
+    else
+      redirect_to '/admin/teams'
+    end
   end
 end
