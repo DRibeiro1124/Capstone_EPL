@@ -26,10 +26,11 @@ const PlayerWrapper = styled.div`
     justify-content: space-between;
     padding: 1em;
     align-items: center;
+    background-color: #c0c0c0;
 }
 
 .number {
-    font-size: 20px
+    font-size: 40px
     font-family: "Premier-League";
 }
 

@@ -33,14 +33,6 @@ li {
     color: #000;
 }
 
-.front {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    // background-image: url(${photo});
-    background-repeat: no-repeat;
-}
-
 /* entire container, keeps perspective */
 .flip-container {
     perspective: 1000px;
@@ -61,12 +53,6 @@ li {
     margin-bottom: 10px;
 }
 
-.back {
-    padding: 20px;
-    background-color: #6CEEFC;
-    background-size: cover;
-}
-
 /* flip speed goes here */
 .flipper {
 	transition: 0.6s;
@@ -85,12 +71,15 @@ li {
 .front {
 	z-index: 2;
     transform: rotateY(0deg);
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 
 .back {
-    transform: rotateY(180deg);    
+    transform: rotateY(180deg);
+    padding: 20px;    
 }
 
 .main-container {

@@ -132,9 +132,7 @@ class Team extends Component {
                         <h2>{team.name}</h2>
                     </header>
                     <div className='team-info'>
-                        <div>
-                            <h5>Manager: <p>{team.name}</p></h5>
-                        </div>
+                        
                         <section>
                             <h5>Stadium: <p>{team.stadium_name}</p></h5>
                             <button style={{ color: team.primary_color ,background:team.secondary_color }}type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Click here for {team.stadium_name} view</button>

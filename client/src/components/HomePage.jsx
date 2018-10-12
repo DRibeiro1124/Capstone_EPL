@@ -170,7 +170,7 @@ class HomePage extends Component {
                                 return (
                                     <tr key={i}>
                                         <td>{teams.position}</td>
-                                        <td><Link to={`/teams/${teams.team_name}`}>{teams.team_name}</Link></td>
+                                        <td>{teams.team_name}</td>
                                         <td>{teams.overall_gp}</td>
                                         <td>{teams.overall_w}</td>
                                         <td>{teams.overall_d}</td>
@@ -179,6 +179,8 @@ class HomePage extends Component {
                                         <td>{teams.overall_ga}</td>
                                         <td>{teams.gd}</td>
                                         <td>{teams.points}</td>
+                                        
+                                        
                                     </tr>
                                 )
                             })}
