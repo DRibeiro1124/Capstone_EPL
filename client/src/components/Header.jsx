@@ -17,7 +17,7 @@ const HeaderWrapper = styled.div`
     
     .EPL-logo {
         height: 9em;
-        margin-left: -2em;
+        margin-left: -4em;
         background-image: url(${logo1});
     }
     
@@ -33,7 +33,6 @@ const HeaderWrapper = styled.div`
         justify-content: space-around;
         flex-wrap: wrap;
         align-items: center;
-        margin-left: 12px;
         background-image: url(${logo1});
         
     }
