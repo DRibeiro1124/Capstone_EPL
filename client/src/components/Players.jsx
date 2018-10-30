@@ -26,7 +26,7 @@ const PlayerWrapper = styled.div`
     justify-content: space-between;
     padding: 1em;
     align-items: center;
-    background-color: #c0c0c0;
+    background-color: dodgerblue;
 }
 
 .number {
